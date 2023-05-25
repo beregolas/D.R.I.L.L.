@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvhr7e5p28e4t"]
+
+[ext_resource type="Script" path="res://Scripts/ButtonLabel.gd" id="1_w7dji"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b0jhe"]
+font_size = 28
+
+[node name="Overlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 156.0
+offset_right = 397.0
+offset_bottom = 187.0
+text = "SINGLE BUTTON!!!"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 158.0
+offset_right = 642.0
+offset_bottom = 184.0
+text = "The button is NOT pressed"
+label_settings = SubResource("LabelSettings_b0jhe")
+script = ExtResource("1_w7dji")

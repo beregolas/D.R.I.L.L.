@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddrbbpi6ijjla"]
+
+[ext_resource type="Texture2D" uid="uid://ckxma15wusbej" path="res://Images/drill.png" id="1_wd05c"]
+
+[node name="World" type="Node2D"]
+
+[node name="Drill" type="Sprite2D" parent="."]
+position = Vector2(432.352, 129.375)
+scale = Vector2(0.172948, 0.172948)
+texture = ExtResource("1_wd05c")
