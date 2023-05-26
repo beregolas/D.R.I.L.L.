@@ -1,5 +1,19 @@
+# Godot.gitignore
 # Godot 4+ specific ignores
 src/.godot/
 
 build
 src/.import
+
+
+# macOS.gitignore
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
