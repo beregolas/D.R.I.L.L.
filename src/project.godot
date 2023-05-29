@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="D.R.I.L.L."
-run/main_scene="res://Scenes/overlay.tscn"
+run/main_scene="res://Scenes/UI/overlay.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
