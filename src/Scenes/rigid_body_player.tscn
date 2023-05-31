@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [node name="RigidBodyPlayer" type="RigidBody2D"]
-position = Vector2(315, 258)
+position = Vector2(645, 144)
 script = ExtResource("1_1mkog")
 metadata/_edit_group_ = true
 
@@ -34,3 +34,6 @@ scale = Vector2(1, 0.999647)
 polygon = PackedVector2Array(-1, 90, -90, -89, 89, -89)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
+limit_left = -5000
+limit_right = 5000

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cw2ghs8q8kkcm" path="res://Scenes/rigid_body_player.tscn" id="2_6qlue"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
+interpolation_mode = 1
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
 colors = PackedColorArray(0.729412, 0.576471, 0.498039, 1, 0.392157, 0.196078, 0.117647, 1, 0.552941, 0.270588, 0.0392157, 1, 1, 0.498039, 0, 1, 1, 0.0901961, 0.188235, 1)
 
@@ -13,10 +14,12 @@ fill_from = Vector2(1, 0.963303)
 [node name="Main" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1160.0
-offset_bottom = 10000.0
+offset_left = -36.0
+offset_top = -40.0
+offset_right = 3984.0
+offset_bottom = 5960.0
 texture = SubResource("GradientTexture2D_p3teu")
 flip_v = true
 
 [node name="RigidBodyPlayer" parent="." instance=ExtResource("2_6qlue")]
-position = Vector2(584, 179)
+position = Vector2(2081, 270)
