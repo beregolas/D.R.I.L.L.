@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bespygi2emhsw"]
+
+[ext_resource type="Texture2D" uid="uid://vpc0pqbq1j1d" path="res://Images/diagonal.png" id="1_thaxd"]
+
+[node name="Diagonal" type="NinePatchRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = -149.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_thaxd")
+region_rect = Rect2(179, 3, 343.023, 1322.8)
+patch_margin_left = 619
+patch_margin_right = 377
