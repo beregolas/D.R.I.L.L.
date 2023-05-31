@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw2ghs8q8kkcm"]
+[gd_scene load_steps=10 format=3 uid="uid://cw2ghs8q8kkcm"]
 
 [ext_resource type="Script" path="res://Scenes/rigid_body_player.gd" id="1_1mkog"]
 [ext_resource type="Texture2D" uid="uid://ckxma15wusbej" path="res://Images/drill.png" id="1_2wk6j"]
@@ -18,10 +18,44 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_5ac06"]
+offsets = PackedFloat32Array(0, 0.764706)
+colors = PackedColorArray(0.619608, 0.203922, 0, 1, 1, 0.432361, 0.236243, 0.627451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bkkbx"]
+gradient = SubResource("Gradient_5ac06")
+
+[sub_resource type="Curve" id="Curve_jruxk"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0.437126, 72.7273), 0.0, 0.0, 0, 0, Vector2(0.706587, 14.5455), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qa7ck"]
+curve = SubResource("Curve_jruxk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dn3jt"]
+emission_shape = 3
+emission_box_extents = Vector3(50, 30, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -30, 0)
+spread = 86.69
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 30.0
+linear_accel_curve = SubResource("CurveTexture_qa7ck")
+damping_min = 50.0
+damping_max = 50.0
+scale_min = 3.0
+scale_max = 8.0
+color_ramp = SubResource("GradientTexture1D_bkkbx")
+
 [node name="RigidBodyPlayer" type="RigidBody2D"]
-position = Vector2(645, 144)
+position = Vector2(639, 144)
 script = ExtResource("1_1mkog")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
@@ -37,3 +71,8 @@ polygon = PackedVector2Array(-1, 90, -90, -89, 89, -89)
 zoom = Vector2(0.3, 0.3)
 limit_left = -5000
 limit_right = 5000
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(1, 98)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_dn3jt")

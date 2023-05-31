@@ -5,7 +5,6 @@ extends RigidBody2D
 
 var screen_size
 var downwardSpeed = 50 #speed pixels/sec
-var getFaster = false
 var debugging = false
 
 var rotation_direction = 0
@@ -38,8 +37,20 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 	position += velocity * delta
-	position.x = clamp(position.x, 100, 3800)
+	position.x = clamp(position.x, 100, 3800) # position.x = clamp(position.x, 100, screen_size.x) # Falls wir es auf Bildschirmgröße brauchen
 	position.y = clamp(position.y, 0, 5800)
+	if(position.y>=5800):
+		explode()
+
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "drill"
-		
+	
+	
+func changeRotationSpeed(newRotSpeed: float):
+	rotation_speed = newRotSpeed
+	pass	
+	
+func explode():
+	hide()
+	$Camera2D.zoom.x = 0.1
+	$Camera2D.zoom.y = 0.1

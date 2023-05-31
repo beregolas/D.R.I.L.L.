@@ -1,8 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl4mlk7de2bgc"]
+[gd_scene load_steps=5 format=3 uid="uid://blucy12ccai7y"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_dv0ol"]
 [ext_resource type="Texture2D" uid="uid://ckxma15wusbej" path="res://Images/drill.png" id="1_mwhjs"]
 [ext_resource type="Texture2D" uid="uid://bh4npiwio0fx4" path="res://Images/drill_2.png" id="2_ylsew"]
+
+[sub_resource type="GDScript" id="GDScript_b33qm"]
+script/source = "extends Area2D
+
+
+@export var speed = 400 #speed pixels/sec
+var screen_size
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _pcess(delta):
+	var velocity = Vector2.ZERO # The player's movement vector.
+	if Input.is_action_pressed(\"move_down\"):
+		velocity.y += 1
+	if Input.is_action_pressed(\"move_left\"):
+		velocity.x -= 1
+	if Input.is_action_pressed(\"move_right\"):
+		velocity.x += 1
+	if (Input.is_action_pressed(\"move_up\")):
+		velocity.y -= 1
+		
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.stop()
+	
+	position += velocity * delta
+	#position.x = clamp(position.x, 0, screen_size.x)
+	#position.y = clamp(position.y, 0, screen_size.y)
+	
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = \"drill\"
+		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+
+	
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lq46o"]
 animations = [{
@@ -20,7 +62,7 @@ animations = [{
 
 [node name="Player" type="Area2D"]
 position = Vector2(491, 283)
-script = ExtResource("1_dv0ol")
+script = SubResource("GDScript_b33qm")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

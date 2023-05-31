@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=6 format=3 uid="uid://c5fwih4hwm4qg"]
 
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_2dy3n"]
 [ext_resource type="PackedScene" uid="uid://cw2ghs8q8kkcm" path="res://Scenes/rigid_body_player.tscn" id="2_6qlue"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
@@ -11,7 +12,21 @@ colors = PackedColorArray(0.729412, 0.576471, 0.498039, 1, 0.392157, 0.196078, 0
 gradient = SubResource("Gradient_t8275")
 fill_from = Vector2(1, 0.963303)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vjbbc"]
+emission_shape = 3
+emission_box_extents = Vector3(2000, 100, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -100, 0)
+gravity = Vector3(0, -100, 0)
+initial_velocity_max = 30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 10.0
+color = Color(1, 0, 0, 1)
+
 [node name="Main" type="Node"]
+script = ExtResource("1_2dy3n")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -36.0
@@ -23,3 +38,8 @@ flip_v = true
 
 [node name="RigidBodyPlayer" parent="." instance=ExtResource("2_6qlue")]
 position = Vector2(2081, 270)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(1946, 5817)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_vjbbc")
