@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw2ghs8q8kkcm"]
+[gd_scene load_steps=6 format=3 uid="uid://cw2ghs8q8kkcm"]
 
 [ext_resource type="Script" path="res://Scenes/rigid_body_player.gd" id="1_1mkog"]
 [ext_resource type="Texture2D" uid="uid://ckxma15wusbej" path="res://Images/drill.png" id="1_2wk6j"]
 [ext_resource type="Texture2D" uid="uid://bh4npiwio0fx4" path="res://Images/drill_2.png" id="2_ge2tj"]
+[ext_resource type="Material" uid="uid://1h5wy8w5p7eq" path="res://Scenes/rigid_body_player.tres" id="4_d3jrj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yakxt"]
 animations = [{
@@ -34,3 +35,8 @@ scale = Vector2(1, 0.999647)
 polygon = PackedVector2Array(-1, 90, -90, -89, 89, -89)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(2, 87)
+amount = 30
+process_material = ExtResource("4_d3jrj")
