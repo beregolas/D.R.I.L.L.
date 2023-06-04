@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=5 format=3 uid="uid://c5fwih4hwm4qg"]
 
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_hbveg"]
 [ext_resource type="PackedScene" uid="uid://cw2ghs8q8kkcm" path="res://Scenes/rigid_body_player.tscn" id="2_6qlue"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
@@ -11,6 +12,7 @@ gradient = SubResource("Gradient_t8275")
 fill_from = Vector2(1, 0.963303)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_hbveg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1160.0
