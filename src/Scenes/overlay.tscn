@@ -1,33 +1,108 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvhr7e5p28e4t"]
+[gd_scene load_steps=13 format=3 uid="uid://bvhr7e5p28e4t"]
 
-[ext_resource type="Script" path="res://Scripts/ButtonLabel.gd" id="1_w7dji"]
+[ext_resource type="FontFile" uid="uid://du5nile3df65v" path="res://Fonts/Xolonium-regular/Xolonium-Regular.ttf" id="1_08461"]
+[ext_resource type="Script" path="res://Scenes/overlay.gd" id="1_h4hve"]
+[ext_resource type="Texture2D" uid="uid://bx7x1xt1rj44s" path="res://Images/Zark Muckerburg/Zark_angry.jpg" id="2_6kjyp"]
+[ext_resource type="Texture2D" uid="uid://tpwjmxi53e1q" path="res://Images/Zark Muckerburg/Zark_angry_transparent.png" id="2_rn507"]
+[ext_resource type="Texture2D" uid="uid://bkklegteycnft" path="res://Images/Zark Muckerburg/Zark_happy_transparent.png" id="3_3ul8g"]
+[ext_resource type="Texture2D" uid="uid://dhj8gt2mnv7p3" path="res://Images/Zark Muckerburg/Zark_happy_green2.png" id="4_4ulco"]
+[ext_resource type="Texture2D" uid="uid://bugx6h0jmxt5g" path="res://Images/Zark Muckerburg/Zark_happy_green.png" id="5_a4m4r"]
+[ext_resource type="Texture2D" uid="uid://cuc3sgn7tnur6" path="res://Images/Zark Muckerburg/Zark_normal_transparent.png" id="6_5k0c8"]
+[ext_resource type="Texture2D" uid="uid://caoevhhbeo4qg" path="res://Images/Zark Muckerburg/Zark_normal.png" id="6_ewe2u"]
+[ext_resource type="Texture2D" uid="uid://bxpoex1m6iwv1" path="res://Images/Zark Muckerburg/Zark_sad.jpg" id="7_5mpvw"]
+[ext_resource type="Texture2D" uid="uid://c7t6jgyssnkxg" path="res://Images/Zark Muckerburg/Zark_sad_2.png" id="8_w2mj0"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_b0jhe"]
-font_size = 28
+[sub_resource type="SpriteFrames" id="SpriteFrames_shs02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rn507")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3ul8g")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("4_4ulco")
+}, {
+"duration": 3.0,
+"texture": ExtResource("5_a4m4r")
+}],
+"loop": false,
+"name": &"happy green",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5k0c8")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5mpvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w2mj0")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ewe2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5mpvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6kjyp")
+}],
+"loop": false,
+"name": &"sad_animated",
+"speed": 1.0
+}]
 
-[node name="Overlay" type="Control"]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Overlay" type="CanvasLayer"]
+script = ExtResource("1_h4hve")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 156.0
-offset_right = 397.0
-offset_bottom = 187.0
-text = "SINGLE BUTTON!!!"
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 1000.0
+offset_top = 24.0
+offset_right = 1045.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("1_08461")
+theme_override_font_sizes/font_size = 64
+text = "0"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 436.0
-offset_top = 158.0
-offset_right = 642.0
-offset_bottom = 184.0
-text = "The button is NOT pressed"
-label_settings = SubResource("LabelSettings_b0jhe")
-script = ExtResource("1_w7dji")
+[node name="Subtitles" type="Label" parent="."]
+visible = false
+offset_left = 120.0
+offset_top = 480.0
+offset_right = 2108.0
+offset_bottom = 723.0
+theme_override_fonts/font = ExtResource("1_08461")
+theme_override_font_sizes/font_size = 32
+text = "Well done Dr. Ill!
+
+Soon the world will burn and everyone will live on the moon"
+autowrap_mode = 2
+
+[node name="Zark" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1024, 200)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_shs02")
+animation = &"sad_animated"
