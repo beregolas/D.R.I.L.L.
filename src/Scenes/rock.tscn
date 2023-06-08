@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbknrph575va"]
+
+[ext_resource type="Script" path="res://Scripts/rock.gd" id="1_dthw8"]
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_dthw8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
