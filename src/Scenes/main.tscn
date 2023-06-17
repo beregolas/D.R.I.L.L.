@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=7 format=3 uid="uid://c5fwih4hwm4qg"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_7835p"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="1_uuuce"]
 [ext_resource type="PackedScene" uid="uid://cw2ghs8q8kkcm" path="res://Scenes/rigid_body_player.tscn" id="2_6qlue"]
+[ext_resource type="PackedScene" uid="uid://73a5h12qyc8n" path="res://Scenes/main_menu.tscn" id="4_x0oln"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
@@ -13,7 +14,7 @@ gradient = SubResource("Gradient_t8275")
 fill_from = Vector2(1, 0.963303)
 
 [node name="Main" type="Node"]
-script = ExtResource("1_7835p")
+script = ExtResource("1_fnyj5")
 
 [node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
 
@@ -25,3 +26,7 @@ flip_v = true
 
 [node name="RigidBodyPlayer" parent="." instance=ExtResource("2_6qlue")]
 position = Vector2(584, 179)
+
+[node name="MainMenu" parent="." instance=ExtResource("4_x0oln")]
+
+[connection signal="start_game" from="MainMenu" to="." method="new_game"]
