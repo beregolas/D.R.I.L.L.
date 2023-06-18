@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpn4gt3hg774"
-path="res://.godot/imported/Hive.png-df98a55fb3f03f617df3ee220d84fd4d.ctex"
+uid="uid://u047bnthdm3t"
+path="res://.godot/imported/rock8g.png-abd17106ae3cf880f604c0146728f47c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Hive.png"
-dest_files=["res://.godot/imported/Hive.png-df98a55fb3f03f617df3ee220d84fd4d.ctex"]
+source_file="res://Images/rocks/rock8g.png"
+dest_files=["res://.godot/imported/rock8g.png-abd17106ae3cf880f604c0146728f47c.ctex"]
 
 [params]
 

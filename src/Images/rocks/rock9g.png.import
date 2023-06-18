@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bumt4wyefpkjm"
-path="res://.godot/imported/Interior-01.png-e20c3085aacbf477fe824e28c578dd04.ctex"
+uid="uid://bx0su1eq4rbba"
+path="res://.godot/imported/rock9g.png-ce27a2b02b381f1d980f20a8cf211c51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Interior-01.png"
-dest_files=["res://.godot/imported/Interior-01.png-e20c3085aacbf477fe824e28c578dd04.ctex"]
+source_file="res://Images/rocks/rock9g.png"
+dest_files=["res://.godot/imported/rock9g.png-ce27a2b02b381f1d980f20a8cf211c51.ctex"]
 
 [params]
 

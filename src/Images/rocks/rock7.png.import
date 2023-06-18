@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb5po6qywncle"
-path="res://.godot/imported/Buildings.png-a29f1c1b5020118f6fe4c4f788561e7d.ctex"
+uid="uid://kfdrpfxdkebn"
+path="res://.godot/imported/rock7.png-baee05205c599f7876d85f08d571d0a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Buildings.png"
-dest_files=["res://.godot/imported/Buildings.png-a29f1c1b5020118f6fe4c4f788561e7d.ctex"]
+source_file="res://Images/rocks/rock7.png"
+dest_files=["res://.godot/imported/rock7.png-baee05205c599f7876d85f08d571d0a1.ctex"]
 
 [params]
 
