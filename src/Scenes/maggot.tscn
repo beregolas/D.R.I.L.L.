@@ -97,13 +97,14 @@ animations = [{
 size = Vector2(23, 11)
 
 [node name="Maggot" type="StaticBody2D"]
+scale = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, -9)
 sprite_frames = SubResource("SpriteFrames_xpp4x")
 animation = &"walk"
-frame_progress = 0.123979
+frame_progress = 0.00141275
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
