@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://55k3s04cu31a"]
+[gd_scene load_steps=17 format=3 uid="uid://55k3s04cu31a"]
 
 [ext_resource type="Texture2D" uid="uid://bvuynfij5ly6r" path="res://Images/MaggotSpit.png" id="1_1gawt"]
+[ext_resource type="Script" path="res://Scripts/maggot.gd" id="1_gpg3x"]
 [ext_resource type="Texture2D" uid="uid://c6ux1pb25yc1t" path="res://Images/MaggotWalk.png" id="1_tj38j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_anu2j"]
@@ -98,6 +99,7 @@ size = Vector2(23, 11)
 
 [node name="Maggot" type="StaticBody2D"]
 scale = Vector2(4, 4)
+script = ExtResource("1_gpg3x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -110,3 +112,5 @@ frame_progress = 0.00141275
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5j8w0")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=127 format=3 uid="uid://b0mmhh2gyew4b"]
+[gd_scene load_steps=128 format=3 uid="uid://b0mmhh2gyew4b"]
 
+[ext_resource type="Script" path="res://Scripts/lava.gd" id="1_7urnm"]
 [ext_resource type="Texture2D" uid="uid://bs0opaidjwn5r" path="res://Images/16_sunburn_spritesheet.png" id="1_sjduq"]
 [ext_resource type="Texture2D" uid="uid://cbo00udm43y5o" path="res://Images/13_vortex_spritesheet.png" id="2_5ob0j"]
 
@@ -874,6 +875,7 @@ animations = [{
 radius = 68.1836
 
 [node name="Lava" type="Node2D"]
+script = ExtResource("1_7urnm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -885,3 +887,5 @@ animation = &"burn1"
 shape = SubResource("CircleShape2D_rqvkh")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
