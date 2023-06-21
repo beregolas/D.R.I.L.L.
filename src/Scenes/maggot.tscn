@@ -1,36 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://55k3s04cu31a"]
+[gd_scene load_steps=9 format=3 uid="uid://55k3s04cu31a"]
 
-[ext_resource type="Texture2D" uid="uid://bvuynfij5ly6r" path="res://Images/MaggotSpit.png" id="1_1gawt"]
 [ext_resource type="Script" path="res://Scripts/maggot.gd" id="1_gpg3x"]
 [ext_resource type="Texture2D" uid="uid://c6ux1pb25yc1t" path="res://Images/MaggotWalk.png" id="1_tj38j"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_anu2j"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l1sbg"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvlup"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ws1sf"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1x22x"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ruct7"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(160, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nibgf"]
-atlas = ExtResource("1_1gawt")
-region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fteg"]
 atlas = ExtResource("1_tj38j")
@@ -50,32 +21,6 @@ region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xpp4x"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_anu2j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l1sbg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dvlup")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ws1sf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1x22x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ruct7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nibgf")
-}],
-"loop": true,
-"name": &"spit",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4fteg")
@@ -106,7 +51,6 @@ texture_filter = 1
 position = Vector2(2, -9)
 sprite_frames = SubResource("SpriteFrames_xpp4x")
 animation = &"walk"
-frame_progress = 0.00141275
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 

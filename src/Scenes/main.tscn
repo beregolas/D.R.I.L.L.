@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=18 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="PackedScene" uid="uid://dnkhgiwui445p" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
+[ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
@@ -553,5 +554,8 @@ position = Vector2(216, 1113)
 
 [node name="Maggot" parent="." instance=ExtResource("12_y6ley")]
 position = Vector2(163, 1691)
+
+[node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
+position = Vector2(919, 296)
 
 [connection signal="start_game" from="MainMenu" to="." method="new_game"]
