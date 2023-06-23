@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://55k3s04cu31a"]
+
+[ext_resource type="Script" path="res://Scripts/maggot.gd" id="1_gpg3x"]
+[ext_resource type="Texture2D" uid="uid://c6ux1pb25yc1t" path="res://Images/MaggotWalk.png" id="1_tj38j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fteg"]
+atlas = ExtResource("1_tj38j")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmxp0"]
+atlas = ExtResource("1_tj38j")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl2hj"]
+atlas = ExtResource("1_tj38j")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l28dg"]
+atlas = ExtResource("1_tj38j")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpp4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fteg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmxp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl2hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l28dg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j8w0"]
+size = Vector2(23, 11)
+
+[node name="Maggot" type="StaticBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_gpg3x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2, -9)
+sprite_frames = SubResource("SpriteFrames_xpp4x")
+animation = &"walk"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5j8w0")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

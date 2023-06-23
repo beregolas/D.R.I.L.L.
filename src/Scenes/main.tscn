@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=18 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="PackedScene" uid="uid://dnkhgiwui445p" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="3_7gk8t"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="3_hq7pr"]
 [ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="4_mfu6c"]
+[ext_resource type="PackedScene" uid="uid://73a5h12qyc8n" path="res://Scenes/main_menu.tscn" id="4_x0oln"]
+[ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
+[ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
+[ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
+[ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gmgq"]
 texture = ExtResource("3_7gk8t")
@@ -490,7 +495,17 @@ fill_from = Vector2(1, 0.963303)
 [node name="Main" type="Node"]
 script = ExtResource("1_fnyj5")
 
+[node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_top = 874.0
+offset_right = 1160.0
+offset_bottom = 10874.0
+texture = SubResource("GradientTexture2D_p3teu")
+flip_v = true
+
 [node name="Section" parent="." instance=ExtResource("1_8r36e")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("2_6qlue")]
 z_index = 10
@@ -524,6 +539,8 @@ gravity_scale = 3.0
 position = Vector2(670, 758)
 scale = Vector2(2, 2)
 
+position = Vector2(205, 437)
+[node name="Garbage" parent="." instance=ExtResource("10_k2kf4")]
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
 position = Vector2(200, 491)
 offset = Vector2(2000, 0)
@@ -535,6 +552,17 @@ editor_draw_limits = true
 script = ExtResource("3_hq7pr")
 follow = NodePath("../Player")
 preferred_distance = 0
+
+[node name="Lava" parent="." instance=ExtResource("11_jcex6")]
+position = Vector2(216, 1113)
+
+[node name="Maggot" parent="." instance=ExtResource("12_y6ley")]
+position = Vector2(163, 1691)
+
+[node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
+position = Vector2(919, 296)
+
+[connection signal="start_game" from="MainMenu" to="." method="new_game"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 7.0
