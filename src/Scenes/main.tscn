@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=17 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="PackedScene" uid="uid://dnkhgiwui445p" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
@@ -8,11 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="3_7gk8t"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="3_hq7pr"]
 [ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="4_mfu6c"]
-[ext_resource type="PackedScene" uid="uid://73a5h12qyc8n" path="res://Scenes/main_menu.tscn" id="4_x0oln"]
-[ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
-[ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
-[ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
-[ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
+[ext_resource type="PackedScene" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
+[ext_resource type="PackedScene" path="res://Scenes/lava.tscn" id="11_jcex6"]
+[ext_resource type="PackedScene" path="res://Scenes/maggot.tscn" id="12_y6ley"]
+[ext_resource type="PackedScene" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
+
+[sub_resource type="Gradient" id="Gradient_t8275"]
+offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
+colors = PackedColorArray(0.109804, 0.121569, 0.0392157, 1, 0.392157, 0.196078, 0.117647, 1, 0.552941, 0.270588, 0.0392157, 1, 1, 0.498039, 0, 1, 1, 0.0901961, 0.188235, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3teu"]
+gradient = SubResource("Gradient_t8275")
+fill_from = Vector2(1, 0.963303)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gmgq"]
 texture = ExtResource("3_7gk8t")
@@ -484,14 +491,6 @@ texture = ExtResource("3_7gk8t")
 [sub_resource type="TileSet" id="TileSet_kujdx"]
 sources/0 = SubResource("TileSetAtlasSource_4gmgq")
 
-[sub_resource type="Gradient" id="Gradient_t8275"]
-offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
-colors = PackedColorArray(0.109804, 0.121569, 0.0392157, 1, 0.392157, 0.196078, 0.117647, 1, 0.552941, 0.270588, 0.0392157, 1, 1, 0.498039, 0, 1, 1, 0.0901961, 0.188235, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3teu"]
-gradient = SubResource("Gradient_t8275")
-fill_from = Vector2(1, 0.963303)
-
 [node name="Main" type="Node"]
 script = ExtResource("1_fnyj5")
 
@@ -536,11 +535,11 @@ rotation = 3.14159
 gravity_scale = 3.0
 
 [node name="Rock" parent="." instance=ExtResource("3_4vsfx")]
-position = Vector2(670, 758)
+position = Vector2(205, 437)
 scale = Vector2(2, 2)
 
-position = Vector2(205, 437)
 [node name="Garbage" parent="." instance=ExtResource("10_k2kf4")]
+
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
 position = Vector2(200, 491)
 offset = Vector2(2000, 0)
@@ -562,8 +561,6 @@ position = Vector2(163, 1691)
 [node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
 position = Vector2(919, 296)
 
-[connection signal="start_game" from="MainMenu" to="." method="new_game"]
-
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 7.0
 offset_top = 1237.0
@@ -571,10 +568,6 @@ offset_right = 1167.0
 offset_bottom = 11237.0
 texture = SubResource("GradientTexture2D_p3teu")
 flip_v = true
-
-[node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
-offset = Vector2(0, 200)
-transform = Transform2D(1, 0, 0, 1, 0, 200)
 
 [node name="ScoreUpdateTimer" type="Timer" parent="."]
 autostart = true
@@ -585,5 +578,5 @@ one_shot = true
 
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]
-[connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
 [connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
+[connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]

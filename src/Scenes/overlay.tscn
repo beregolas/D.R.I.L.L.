@@ -80,10 +80,10 @@ script = ExtResource("1_h4hve")
 
 [node name="ScoreLabel" type="Label" parent="."]
 top_level = true
-offset_left = 474.0
-offset_top = 45.0
-offset_right = 616.0
-offset_bottom = 288.0
+offset_left = 525.0
+offset_top = -12.0
+offset_right = 667.0
+offset_bottom = 231.0
 theme_override_fonts/font = ExtResource("1_08461")
 theme_override_font_sizes/font_size = 100
 text = "0"
