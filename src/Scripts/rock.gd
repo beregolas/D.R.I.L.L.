@@ -1,4 +1,5 @@
-extends StaticBody2D
+extends Area2D
+signal collision
 
 enum SHAPES {CAPSULE, CIRCLE, RECT}
 
@@ -77,3 +78,13 @@ func _process(_delta):
 
 func _init():
 	pass
+	
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		print("Collision!")
+		emit_signal("collision")
+		hide()
+		
+
+	
+

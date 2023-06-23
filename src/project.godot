@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="D.R.I.L.L."
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/bg_color=Color(0.376471, 0.180392, 0.0745098, 1)
 config/icon="res://icon.svg"

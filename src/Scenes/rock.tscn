@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/rock.gd" id="1_dthw8"]
 
-[node name="Rock" type="StaticBody2D"]
+[node name="Rock" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_dthw8")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -11,3 +12,5 @@ texture_filter = 1
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

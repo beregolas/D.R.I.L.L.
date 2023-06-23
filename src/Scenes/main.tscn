@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=13 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="PackedScene" uid="uid://dnkhgiwui445p" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
@@ -8,15 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="3_7gk8t"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="3_hq7pr"]
 [ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="4_mfu6c"]
-[ext_resource type="PackedScene" uid="uid://73a5h12qyc8n" path="res://Scenes/main_menu.tscn" id="4_x0oln"]
-
-[sub_resource type="Gradient" id="Gradient_t8275"]
-offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
-colors = PackedColorArray(0.109804, 0.121569, 0.0392157, 1, 0.392157, 0.196078, 0.117647, 1, 0.552941, 0.270588, 0.0392157, 1, 1, 0.498039, 0, 1, 1, 0.0901961, 0.188235, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3teu"]
-gradient = SubResource("Gradient_t8275")
-fill_from = Vector2(1, 0.963303)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gmgq"]
 texture = ExtResource("3_7gk8t")
@@ -488,26 +479,27 @@ texture = ExtResource("3_7gk8t")
 [sub_resource type="TileSet" id="TileSet_kujdx"]
 sources/0 = SubResource("TileSetAtlasSource_4gmgq")
 
+[sub_resource type="Gradient" id="Gradient_t8275"]
+offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
+colors = PackedColorArray(0.109804, 0.121569, 0.0392157, 1, 0.392157, 0.196078, 0.117647, 1, 0.552941, 0.270588, 0.0392157, 1, 1, 0.498039, 0, 1, 1, 0.0901961, 0.188235, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3teu"]
+gradient = SubResource("Gradient_t8275")
+fill_from = Vector2(1, 0.963303)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_fnyj5")
-
-[node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_top = 874.0
-offset_right = 1160.0
-offset_bottom = 10874.0
-texture = SubResource("GradientTexture2D_p3teu")
-flip_v = true
 
 [node name="Section" parent="." instance=ExtResource("1_8r36e")]
 
 [node name="Player" parent="." instance=ExtResource("2_6qlue")]
-position = Vector2(584, 179)
+z_index = 10
+position = Vector2(580, 180)
 linear_damp_mode = 1
 linear_damp = 5.0
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(580, 321)
 scale = Vector2(2.40833, 2.36029)
@@ -523,16 +515,19 @@ layer_0/name = "Layer 0"
 layer_0/tile_data = PackedInt32Array(2, 131072, 0, 3, 196608, 0, 4, 65536, 0, 5, 131072, 0, 6, 196608, 0, 7, 65536, 0, 8, 131072, 0, 9, 196608, 0, 13, 196608, 0, 12, 131072, 0, 11, 65536, 0, 10, 131072, 0, 65538, 131072, 1, 65539, 196608, 1, 65540, 65536, 1, 65541, 131072, 1, 65542, 196608, 1, 65543, 65536, 1, 65544, 131072, 1, 65545, 196608, 1, 65546, 65536, 1, 65547, 131072, 1, 65548, 196608, 1, 65549, 65536, 1, 196610, 65536, 2, 327682, 196608, 3, 262146, 65536, 2, 196611, 65536, 2, 262147, 65536, 2, 327683, 196608, 3, 196621, 65536, 2, 262157, 65536, 2, 327693, 65536, 2, 196609, 65536, 2, 262145, 65536, 2, 327681, 196608, 3, 1, 65536, 0, 65537, 65536, 1, 65550, 131072, 1, 14, 196608, 0, 196612, 65536, 2, 196613, 65536, 2, 196614, 65536, 2, 196615, 65536, 2, 196616, 65536, 2, 196617, 65536, 2, 196618, 65536, 2, 196619, 65536, 2, 196620, 65536, 2, 196622, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 65536, 2, 262154, 65536, 2, 262155, 65536, 2, 262156, 65536, 2, 262158, 65536, 2, 327684, 196608, 3, 327685, 196608, 3, 327686, 196608, 3, 327688, 196608, 3, 327687, 196608, 3, 327689, 196608, 3, 327690, 196608, 3, 327691, 196608, 3, 327692, 196608, 3, 327694, 131072, 3, 393217, 131072, 3, 393218, 131072, 3, 393219, 131072, 3, 393220, 131072, 3, 393221, 131072, 3, 393222, 131072, 3, 393223, 131072, 3, 393224, 131072, 3, 393225, 131072, 3, 393226, 131072, 3, 393227, 131072, 3, 393228, 131072, 3, 393229, 131072, 3, 393230, 131072, 3, 458753, 65536, 3, 458754, 65536, 3, 458755, 65536, 3, 458756, 65536, 3, 458757, 65536, 3, 458758, 65536, 3, 458759, 65536, 3, 458760, 65536, 3, 458761, 65536, 3, 458762, 65536, 3, 458763, 65536, 3, 458764, 65536, 3, 458765, 65536, 3, 458766, 65536, 3, 0, 131072, 0, 65536, 131072, 1, 196608, 65536, 2, 262144, 65536, 2, 327680, 196608, 3, 393216, 131072, 3, 458752, 65536, 3, 131072, 65536, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 65536, 2, 131076, 65536, 2, 131077, 65536, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 131084, 65536, 2, 131085, 65536, 2, 131086, 65536, 2, 131078, 65536, 2)
 
 [node name="RigidBodyPlayer" parent="." instance=ExtResource("2_6qlue")]
-position = Vector2(546, -104)
+z_index = 10
+position = Vector2(580, -100)
+rotation = 3.14159
+gravity_scale = 3.0
 
 [node name="Rock" parent="." instance=ExtResource("3_4vsfx")]
 position = Vector2(670, 758)
 scale = Vector2(2, 2)
 
-[node name="MainMenu" parent="." instance=ExtResource("4_x0oln")]
-
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
-position = Vector2(520, 491)
+position = Vector2(200, 491)
+offset = Vector2(2000, 0)
+zoom = Vector2(0.3, 0.3)
 limit_left = 0
 limit_right = 1000
 position_smoothing_enabled = true
@@ -541,4 +536,26 @@ script = ExtResource("3_hq7pr")
 follow = NodePath("../Player")
 preferred_distance = 0
 
-[connection signal="start_game" from="MainMenu" to="." method="new_game"]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 7.0
+offset_top = 1237.0
+offset_right = 1167.0
+offset_bottom = 11237.0
+texture = SubResource("GradientTexture2D_p3teu")
+flip_v = true
+
+[node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
+offset = Vector2(0, 200)
+transform = Transform2D(1, 0, 0, 1, 0, 200)
+
+[node name="ScoreUpdateTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ScoldTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="collision" from="Rock" to="." method="scoldPlayer"]
+[connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]
+[connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
+[connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]

@@ -6,18 +6,20 @@ signal exit
 var main
 var instance
 var Highscore = "Highscore: "
-var numberScore:Array = [1337]
+var numberScore:Array = [1000]
 var Buttons:Array
-var chosenButton = 0
-var animation = true
+var chosenButton = 1
+var animation = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_highScore()
-
+	
 	Buttons = $ButtonsContainer.get_children()
 	if(animation):
-		$NextButtonTimer.start(0.3)
+		$NextButtonTimer.start(0.2)
+	Buttons[chosenButton-1].select()
+	
 
 
 
@@ -27,7 +29,9 @@ func _process(delta):
 		var name = Buttons[(chosenButton - 1) % Buttons.size()].ButtonName
 		print(name)
 		if(name=="Start"):
+			save_highscore()
 			start_game.emit()
+			get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		if(name=="Settings"):
 			add_highscore(int(ceil(randf_range(100, 3000))))
 			settings.emit()
@@ -62,10 +66,12 @@ func cycle_through_menu():
 			$NextButtonTimer.start(1.5)
 			animation = false
 		else:
-			Buttons[chosenButton].highlightTime = 0.25
+			Buttons[chosenButton].highlightTime = 3
+		
 			
 	Buttons[chosenButton].select()
 	chosenButton = (chosenButton + 1) % Buttons.size()
+	
 		
 	
 	
@@ -76,38 +82,31 @@ func save_highscore():
 	var node_data
 	for number in range(numberScore.size()):
 		node_data = {str(number) : numberScore[number]}
-
-	# JSON provides a static method to serialized JSON string.
-	var json_string = JSON.stringify(node_data)
-	# Store the save dictionary as a new line in the save file.
-	save_file.store_line(json_string)
+		
+		# JSON provides a static method to serialized JSON string.
+		#var json_string = JSON.stringify(node_data)
+		# Store the save dictionary as a new line in the save file.
+		save_file.store_line(str(numberScore[number]))#save_file.store_line(json_string)
+	save_file.close()
 	
 		
 # Note: This can be called from anywhere inside the tree. This function
 # is path independent.
 func load_highScore():
+	var stuff = []
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
-
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
 	var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
 	while save_game.get_position() < save_game.get_length():
 		var json_string = save_game.get_line()
-
-		# Creates the helper class to interact with JSON
-		var json = JSON.new()
-
-		# Check if there is any error while parsing the JSON string, skip in case of failure
-		var parse_result = json.parse(json_string)
-		if not parse_result == OK:
-			print("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
-			continue
-
-		# Get the data from the JSON object
-		var node_data = json.get_data()
-		print(node_data)
+		print(json_string)
+		
+		add_highscore(json_string)
+	save_game.close()
+	return
 		
 	
 	

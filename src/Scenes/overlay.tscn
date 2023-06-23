@@ -79,20 +79,21 @@ animations = [{
 script = ExtResource("1_h4hve")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 1000.0
-offset_top = 24.0
-offset_right = 1045.0
-offset_bottom = 106.0
+top_level = true
+offset_left = 474.0
+offset_top = 45.0
+offset_right = 616.0
+offset_bottom = 288.0
 theme_override_fonts/font = ExtResource("1_08461")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 100
 text = "0"
 
 [node name="Subtitles" type="Label" parent="."]
 visible = false
-offset_left = 120.0
-offset_top = 480.0
-offset_right = 2108.0
-offset_bottom = 723.0
+offset_left = 1.0
+offset_top = 304.0
+offset_right = 1989.0
+offset_bottom = 547.0
 theme_override_fonts/font = ExtResource("1_08461")
 theme_override_font_sizes/font_size = 32
 text = "Well done Dr. Ill!
@@ -102,7 +103,7 @@ autowrap_mode = 2
 
 [node name="Zark" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(1024, 200)
+position = Vector2(872, 131)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_shs02")
 animation = &"sad_animated"

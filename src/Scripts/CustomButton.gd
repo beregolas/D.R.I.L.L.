@@ -1,7 +1,7 @@
 extends Panel
 @export var ButtonName = "Custom Button"
 @export var highlightColor = Color(1.0, 0.2, 0.2, 1)
-@export var highlightTime = 1
+@export var highlightTime = 2
 var standardColor = Color(1,1,1,1)
 
 

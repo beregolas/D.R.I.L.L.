@@ -10,8 +10,14 @@ func _ready():
 func _process(delta):
 	pass
 
+func announce(mood:String, text:String):
+	set_subtitle(text)
+	set_mood_zark(mood)
+	setup_speech()
+
 func update_score(score):
 	$ScoreLabel.text = str(score)
+	$ScoreLabel.show()
 
 func set_subtitle(newSubtitle:String):
 	$Subtitles.text = newSubtitle
