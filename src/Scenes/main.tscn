@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="3_7gk8t"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="3_hq7pr"]
 [ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="4_mfu6c"]
-[ext_resource type="PackedScene" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
-[ext_resource type="PackedScene" path="res://Scenes/lava.tscn" id="11_jcex6"]
-[ext_resource type="PackedScene" path="res://Scenes/maggot.tscn" id="12_y6ley"]
-[ext_resource type="PackedScene" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
+[ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
+[ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
+[ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
+[ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
@@ -535,15 +535,18 @@ rotation = 3.14159
 gravity_scale = 3.0
 
 [node name="Rock" parent="." instance=ExtResource("3_4vsfx")]
+visible = false
 position = Vector2(205, 437)
 scale = Vector2(2, 2)
 
 [node name="Garbage" parent="." instance=ExtResource("10_k2kf4")]
+visible = false
+position = Vector2(574, 965)
 
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
 position = Vector2(200, 491)
-offset = Vector2(2000, 0)
-zoom = Vector2(0.3, 0.3)
+offset = Vector2(2.08165e-12, 2.08165e-12)
+zoom = Vector2(0.5, 0.5)
 limit_left = 0
 limit_right = 1000
 position_smoothing_enabled = true
@@ -553,12 +556,15 @@ follow = NodePath("../Player")
 preferred_distance = 0
 
 [node name="Lava" parent="." instance=ExtResource("11_jcex6")]
+visible = false
 position = Vector2(216, 1113)
 
 [node name="Maggot" parent="." instance=ExtResource("12_y6ley")]
+visible = false
 position = Vector2(163, 1691)
 
 [node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
+visible = false
 position = Vector2(919, 296)
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -576,7 +582,11 @@ autostart = true
 wait_time = 3.0
 one_shot = true
 
+[node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]
 [connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
 [connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

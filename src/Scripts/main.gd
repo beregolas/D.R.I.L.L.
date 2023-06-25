@@ -19,7 +19,8 @@ func new_game():
 	$Overlay.show_zark(false)
 	score = 0
 	$Overlay.update_score(score)
-	instantiate_rocks(20, 000, 900, 100, 10000) # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
+	$ObstacleTimer.start()
+	#instantiate_rocks(20, 000, 900, 100, 10000) # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
 		
 func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float, max_y:float):
 	var scene = load("res://Scenes/Rock.tscn")
@@ -105,3 +106,9 @@ func load_highScore():
 	save_game.close()	
 	return highscores
 		
+
+
+func _on_obstacle_timer_timeout():
+	var min_pos = $FollowCamera.position.y + get_viewport().size.y
+	print("obstacle ", min_pos, " : ", get_viewport().size.y)
+	instantiate_rocks(5, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y)
