@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/garbage.gd" id="1_wv14a"]
 [ext_resource type="Texture2D" uid="uid://c4c8mc5pjux6k" path="res://Images/garbage/Icons_28.png" id="2_spxhh"]
 
-[node name="Garbage" type="Node2D"]
+[node name="Garbage" type="Area2D"]
 script = ExtResource("1_wv14a")
 
 [node name="Sprite" type="Sprite2D" parent="."]

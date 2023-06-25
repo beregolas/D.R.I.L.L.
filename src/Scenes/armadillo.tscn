@@ -164,7 +164,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yrcko"]
 radius = 7.0
 
-[node name="Armadillo" type="StaticBody2D"]
+[node name="Armadillo" type="Area2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_yvuk6")
 

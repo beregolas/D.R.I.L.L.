@@ -1,4 +1,7 @@
-extends Node2D
+extends Area2D
+signal collision
+
+enum SHAPES {CAPSULE, CIRCLE, RECT}
 
 var garbage_images = [
 	"res://Images/garbage/Icon1.png",

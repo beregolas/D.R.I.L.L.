@@ -1,4 +1,5 @@
-extends StaticBody2D
+extends Area2D
+signal collision
 
 var speed = 50  # Geschwindigkeit der Bewegung
 var direction = Vector2(1, 0)  # Richtung der Bewegung
