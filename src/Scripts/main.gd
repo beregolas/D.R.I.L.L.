@@ -45,22 +45,10 @@ func scoldPlayer():
 	
 	if(collisionsCounter==lives):
 		$Player.die()
+		$GameOverDelayTimer.start()
 		$Overlay.set_subtitle("You failed!\nMaybe you succeed next time.")
 	$Overlay.setup_speech()
 	$ScoldTimer.start(3)
-	
-	# This is so high, because the torq turns the player so they object phases
-	# in and out of the stone, counting it as multiple collisions
-	if(collisionsCounter>40): 
-		_hideScolding()
-
-			
-func _hideScolding():
-	print("Hide scolidng")
-	$Overlay.show_zark(false)
-	$Overlay.show_subtitles(false)
-	if(collisionsCounter>=3):
-		returnToMenu()
 
 func returnToMenu():
 	save_highscore()

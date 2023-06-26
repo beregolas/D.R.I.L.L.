@@ -566,7 +566,12 @@ autostart = true
 wait_time = 3.0
 one_shot = true
 
+[node name="GameOverDelayTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]
 [connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
 [connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
+[connection signal="timeout" from="GameOverDelayTimer" to="." method="returnToMenu"]
