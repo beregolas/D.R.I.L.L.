@@ -2,7 +2,7 @@ extends Area2D
 
 @export var color = Color(0.0, 0.5, 0.5)
 @export var horizontal_size:float = 3000
-@export var vertical_size:float = 20
+@export var vertical_size:float = 100
 var last_section
 var next_section
 var size:Vector2
@@ -32,10 +32,20 @@ func _draw():
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		print("ENTERED")
-		body.test_call("message_test")
-
+		#create the next section
+		create_section()
+		
+func create_section():
+	var section = load("res://Scenes/section.tscn").instantiate()
+	section.position_y = self.position_y + self.vertical_size
+	section.last_section = self
+	add_child(section)
+	
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
 		print("EXITED")
+		if(last_section!= null):
+			last_section.queue_free()
+		
 
