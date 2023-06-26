@@ -3,9 +3,10 @@ var score:int
 var rocks = []
 var collisionsCounter:int
 
+@export var lives = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$RigidBodyPlayer.freeze = true
 	new_game()
 	$Overlay.show()
 	
@@ -22,7 +23,7 @@ func new_game():
 	instantiate_rocks(20, 000, 900, 100, 10000) # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
 		
 func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float, max_y:float):
-	var scene = load("res://Scenes/Rock.tscn")
+	var scene = load("res://Scenes/rock.tscn")
 	for i in range(amountofRocks):
 		var rock = scene.instantiate()
 		rock.position =  Vector2(randf_range(min_x,max_x), randf_range(min_y, max_y))
@@ -33,7 +34,7 @@ func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float,
 
 func scoldPlayer():
 	collisionsCounter += 1
-	if(collisionsCounter<3):
+	if(collisionsCounter<lives):
 		var scoldings = ["You fool!",
 						"You should NOT hit the rocks!", 
 						"Open your Eyes!",
@@ -42,9 +43,8 @@ func scoldPlayer():
 						]
 		$Overlay.announce("Angry", scoldings.pick_random())
 	
-	if(collisionsCounter==3):
-		$Player.apply_torque_impulse(500000)
-		$Player.add_constant_force(Vector2(0, -4*$Player.linear_velocity.y))
+	if(collisionsCounter==lives):
+		$Player.die()
 		$Overlay.set_subtitle("You failed!\nMaybe you succeed next time.")
 	$Overlay.setup_speech()
 	$ScoldTimer.start(3)

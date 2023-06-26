@@ -1,9 +1,17 @@
-extends RigidBody2D
+extends CharacterBody2D
 
-@export var drilling_speed = 400 #speed pixels/sec
+@export var drilling_speed = 8000 #speed pixels/sec
 var screen_size
-@export var rotation_speed = 5.0
-@export var maximum_angle = [-85, 85]
+@export var rotation_speed = 60.0
+@export var maximum_angle = 80
+
+var speed_factor = 1.0
+
+var alive = true
+
+var death_rotation = 0
+var death_direction = Vector2(0, 0)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,12 +19,26 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#print(linear_velocity)
-	pass
+func _physics_process(delta):
+	if alive:
+		# check for rotation direction
+		var rotation_direction = -1 if Input.is_action_pressed("TheOnlyAction") else 1 
+		# update rotation
+		self.rotation_degrees = max(min(self.rotation_degrees + rotation_direction * rotation_speed * delta, maximum_angle), -maximum_angle)
+		print(rotation_degrees)
+		velocity = transform.y * drilling_speed * delta
+		move_and_slide()
+	else:
+		self.rotation_degrees += death_rotation * delta
+		self.position += death_direction
+		
 
 
 func test_call(message):
 	print(message)
 
 
+func die():
+	self.death_rotation = randf_range(-45, 45)
+	self.death_direction = Vector2(randf_range(-100, 100), randf_range(-100, 100))
+	self.alive = false
