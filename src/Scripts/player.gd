@@ -30,7 +30,7 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		self.rotation_degrees += death_rotation * delta
-		self.position += death_direction
+		self.position += death_direction * delta
 		
 
 
@@ -39,6 +39,7 @@ func test_call(message):
 
 
 func die():
-	self.death_rotation = randf_range(-45, 45)
-	self.death_direction = Vector2(randf_range(-100, 100), randf_range(-100, 100))
+	self.death_rotation = randf_range(-60, 60)
+	self.death_direction = Vector2(randf_range(-8, 8), randf_range(-8, 8))
 	self.alive = false
+	$Collider.disabled = false
