@@ -3,7 +3,7 @@ var score:int
 var rocks = []
 var collisionsCounter:int
 
-@export var lives = 1
+@export var lives = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,8 +13,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(Input.is_action_just_pressed("debug_action")):
+		print("creating section")
+		create_section()
 	pass
 
+func create_section():
+	var section = load("res://Scenes/section.tscn").instantiate()
+	add_child(section)
+	
 
 func new_game():
 	$Overlay.show_zark(false)

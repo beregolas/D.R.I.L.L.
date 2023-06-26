@@ -15,17 +15,20 @@ var death_direction = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	debug_run(true,true)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+
+	
 	if alive:
 		# check for rotation direction
 		var rotation_direction = -1 if Input.is_action_pressed("TheOnlyAction") else 1 
 		# update rotation
 		self.rotation_degrees = max(min(self.rotation_degrees + rotation_direction * rotation_speed * delta, maximum_angle), -maximum_angle)
-		print(rotation_degrees)
+		#print(rotation_degrees)
 		velocity = transform.y * drilling_speed * delta
 		move_and_slide()
 	else:
@@ -38,6 +41,15 @@ func test_call(message):
 	print(message)
 
 
+func debug_run(slow=false,colissions=false):
+	
+	#$Collider.disabled = !colissions
+	if(slow):
+		drilling_speed = drilling_speed
+	else:
+		drilling_speed = drilling_speed*10
+	rotation_speed = 0
+	
 func die():
 	self.death_rotation = randf_range(-60, 60)
 	self.death_direction = Vector2(randf_range(-8, 8), randf_range(-8, 8))
