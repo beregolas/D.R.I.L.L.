@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl4mlk7de2bgc"]
+[gd_scene load_steps=6 format=3 uid="uid://cl4mlk7de2bgc"]
 
 [ext_resource type="Texture2D" uid="uid://ckxma15wusbej" path="res://Images/drill.png" id="1_2wk6j"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_a3c6k"]
 [ext_resource type="Texture2D" uid="uid://bh4npiwio0fx4" path="res://Images/drill_2.png" id="2_ge2tj"]
+[ext_resource type="Script" path="res://Scripts/Ghost.gd" id="4_85sa4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yakxt"]
 animations = [{
@@ -27,6 +28,19 @@ metadata/_edit_group_ = true
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
+
+[node name="GhostRight" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_yakxt")
+animation = &"drill"
+script = ExtResource("4_85sa4")
+
+[node name="GhostLeft" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_yakxt")
+animation = &"drill"
+script = ExtResource("4_85sa4")
+diff = Vector2(-1000, 0)
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.151592, -0.101253)

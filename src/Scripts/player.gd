@@ -20,6 +20,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	# check for doodle jump warp
+	if self.position.x < 0:
+		self.position.x += 1000
+	elif self.position.x > 1000:
+		self.position.x -= 1000
 	if alive:
 		# check for rotation direction
 		var rotation_direction = -1 if Input.is_action_pressed("TheOnlyAction") else 1 
