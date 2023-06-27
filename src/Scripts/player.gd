@@ -42,10 +42,10 @@ func test_call(message):
 
 
 func debug_run(slow=false,colissions=false):
-	
+	get_tree().is_debugging_collisions_hint() 
 	#$Collider.disabled = !colissions
 	if(slow):
-		drilling_speed = drilling_speed
+		drilling_speed = drilling_speed#*0.1
 	else:
 		drilling_speed = drilling_speed*10
 	rotation_speed = 0

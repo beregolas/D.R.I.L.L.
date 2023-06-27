@@ -11,7 +11,7 @@ func _init():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$shape.shape.size.x = 3000
-	$shape.shape.size.y = 100
+	$shape.shape.size.y = 1000
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

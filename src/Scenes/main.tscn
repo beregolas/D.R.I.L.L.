@@ -1,25 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=14 format=3 uid="uid://c5fwih4hwm4qg"]
 
-[ext_resource type="PackedScene" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="1_uuuce"]
 [ext_resource type="PackedScene" uid="uid://cl4mlk7de2bgc" path="res://Scenes/player.tscn" id="2_6qlue"]
 [ext_resource type="PackedScene" uid="uid://caicvjfbmfpl3" path="res://Scenes/rock.tscn" id="3_4vsfx"]
-[ext_resource type="Texture2D" uid="uid://d06darokjacft" path="res://Images/Tiles.png" id="3_7gk8t"]
+[ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="3_7gk8t"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="3_hq7pr"]
-[ext_resource type="Texture2D" uid="uid://dwb0qescttsc1" path="res://Images/Background.png" id="4_mfu6c"]
-[ext_resource type="PackedScene" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
-[ext_resource type="PackedScene" path="res://Scenes/lava.tscn" id="11_jcex6"]
-[ext_resource type="PackedScene" path="res://Scenes/maggot.tscn" id="12_y6ley"]
-[ext_resource type="PackedScene" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
-
-[sub_resource type="Gradient" id="Gradient_t8275"]
-offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
-colors = PackedColorArray(0.109804, 0.121569, 0.0392157, 1, 0.392157, 0.196078, 0.117647, 1, 0.552941, 0.270588, 0.0392157, 1, 1, 0.498039, 0, 1, 1, 0.0901961, 0.188235, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p3teu"]
-gradient = SubResource("Gradient_t8275")
-fill_from = Vector2(1, 0.963303)
+[ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="4_mfu6c"]
+[ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
+[ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
+[ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
+[ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gmgq"]
 texture = ExtResource("3_7gk8t")
@@ -496,16 +487,6 @@ script = ExtResource("1_fnyj5")
 
 [node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_top = 874.0
-offset_right = 1160.0
-offset_bottom = 10874.0
-texture = SubResource("GradientTexture2D_p3teu")
-flip_v = true
-
-[node name="Section" parent="." instance=ExtResource("1_8r36e")]
-visible = false
-
 [node name="Player" parent="." instance=ExtResource("2_6qlue")]
 z_index = 10
 position = Vector2(580, 180)
@@ -550,14 +531,6 @@ position = Vector2(163, 1691)
 
 [node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
 position = Vector2(919, 296)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 7.0
-offset_top = 1237.0
-offset_right = 1167.0
-offset_bottom = 11237.0
-texture = SubResource("GradientTexture2D_p3teu")
-flip_v = true
 
 [node name="ScoreUpdateTimer" type="Timer" parent="."]
 autostart = true

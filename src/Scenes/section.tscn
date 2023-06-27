@@ -10,7 +10,7 @@ gravity_space_override = 3
 script = ExtResource("1_vy0tb")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-position = Vector2(500, 1000)
+position = Vector2(0, 1000)
 shape = SubResource("RectangleShape2D_amnqa")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

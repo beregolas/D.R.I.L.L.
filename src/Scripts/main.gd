@@ -7,20 +7,22 @@ var collisionsCounter:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	new_game()
 	$Overlay.show()
+	
+	var region = load("res://Scenes/region.tscn").instantiate()
+	add_child(region)
+	#var section = load("res://Scenes/section.tscn").instantiate()
+	#section.create_first_section(self)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("debug_action")):
-		print("creating section")
-		create_section()
+	#if(Input.is_action_just_pressed("debug_action")):
+	#	print("creating section")
 	pass
 
-func create_section():
-	var section = load("res://Scenes/section.tscn").instantiate()
-	add_child(section)
 	
 
 func new_game():
