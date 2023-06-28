@@ -7,7 +7,7 @@
 size = Vector2(4000, 4000)
 
 [node name="region" type="Area2D"]
-position = Vector2(600, 850)
+position = Vector2(600, 1000)
 script = ExtResource("1_h76cs")
 
 [node name="shape" type="CollisionShape2D" parent="."]

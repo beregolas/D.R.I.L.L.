@@ -15,7 +15,7 @@ var animation = false
 func _ready():
 	load_highScore()
 	Buttons = $ButtonsContainer.get_children()
-	debug_start()
+	#debug_start()
 	if(animation):
 		$NextButtonTimer.start(0.2)
 	Buttons[chosenButton-1].select()

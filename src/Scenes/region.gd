@@ -33,7 +33,7 @@ func get_end_position():
 
 func create_next_region():
 	var next_region = load("res://Scenes/region.tscn").instantiate()
-	next_region.transform.origin.y = get_end_position()
+	next_region.transform.origin.y = get_end_position()-10
 	next_region.last_region = self
 	get_parent().add_child(next_region)
 
