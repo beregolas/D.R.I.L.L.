@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=18 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="PackedScene" uid="uid://coc36dmot6hcb" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
+[ext_resource type="PackedScene" uid="uid://l2lrspqeiimy" path="res://Scenes/region.tscn" id="13_gtwrt"]
 [ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
@@ -497,9 +498,11 @@ script = ExtResource("1_fnyj5")
 [node name="Overlay" parent="." instance=ExtResource("1_uuuce")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_top = 874.0
-offset_right = 1160.0
-offset_bottom = 10874.0
+visible = false
+offset_left = 6.0
+offset_top = 884.0
+offset_right = 1166.0
+offset_bottom = 10884.0
 texture = SubResource("GradientTexture2D_p3teu")
 flip_v = true
 
@@ -551,14 +554,6 @@ position = Vector2(163, 1691)
 [node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
 position = Vector2(919, 296)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 7.0
-offset_top = 1237.0
-offset_right = 1167.0
-offset_bottom = 11237.0
-texture = SubResource("GradientTexture2D_p3teu")
-flip_v = true
-
 [node name="ScoreUpdateTimer" type="Timer" parent="."]
 autostart = true
 
@@ -569,6 +564,8 @@ one_shot = true
 [node name="GameOverDelayTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="region" parent="." instance=ExtResource("13_gtwrt")]
 
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]

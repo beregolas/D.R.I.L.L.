@@ -1,17 +1,18 @@
 extends Area2D
 
 var last_region = null
-
+#size of region is set in the shape.shape menu
 func _init():
-	self.transform.origin.y = 1000
+	pass
 	
 
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$shape.shape.size.x = 3000
-	$shape.shape.size.y = 1000
+	modulate_color()
+	#$shape.shape.size.x = 3000
+	#$shape.shape.size.y = 1000
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,8 +37,15 @@ func create_next_region():
 	next_region.last_region = self
 	get_parent().add_child(next_region)
 
+func modulate_color():
+	var blue_hue = randf_range(0.5,1)
+	var green_hue = randf_range(0.5,1)
+	var red_hue = randf_range(0.5,1)
+	$texture.modulate = Color(blue_hue, green_hue, red_hue)
+	
 
 func _on_body_entered(body):
+	
 	print("entered new region")
 	if body.is_in_group("player"):
 		change_player_movement()

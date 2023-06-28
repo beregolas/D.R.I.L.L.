@@ -3,7 +3,7 @@ var score:int
 var rocks = []
 var collisionsCounter:int
 
-@export var lives = 1
+@export var lives = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
