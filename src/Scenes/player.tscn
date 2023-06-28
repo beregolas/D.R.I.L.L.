@@ -40,7 +40,6 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
 script = ExtResource("4_85sa4")
-diff = Vector2(-1000, 0)
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.151592, -0.101253)

@@ -19,7 +19,10 @@ func _process(delta):
 func new_game():
 	$Overlay.show_zark(false)
 	score = 0
+	
 	$Overlay.update_score(score)
+	var region = load("res://Scenes/region.tscn").instantiate()
+	add_child(region)
 	instantiate_rocks(20, 000, 900, 100, 10000) # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
 		
 func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float, max_y:float):
