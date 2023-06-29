@@ -4,7 +4,7 @@ extends Camera2D
 
 @export var preferred_distance = -1000
 
-@export var camera_speed = 0.09
+@export var camera_speed = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
