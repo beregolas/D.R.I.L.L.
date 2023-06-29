@@ -25,6 +25,7 @@ func new_game():
 	add_child(region)
 	instantiate_rocks(20, 000, 900, 100, 10000) # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
 		
+### Generate a parametrazised amount of rocks in a rectangle defined by min_x, max_x, min_y and max_y		
 func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float, max_y:float):
 	var scene = load("res://Scenes/rock.tscn")
 	for i in range(amountofRocks):
@@ -35,6 +36,8 @@ func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float,
 		rocks.append(rock)
 	
 
+### Display Zark Muckerberg and show messages scolding the player for hitting objects
+### Also checks if the maximum number of collisions was reached and initiates playerdeath
 func scoldPlayer():
 	collisionsCounter += 1
 	if(collisionsCounter<lives):
@@ -53,25 +56,34 @@ func scoldPlayer():
 	$Overlay.setup_speech()
 	$ScoldTimer.start(3)
 
+### This hides the face of Zark and overlay text again, when $ScoldTimer triggers
+func _hideScolding():
+	$Overlay.show_zark(false)
+	$Overlay.show_subtitles(false)
+	
+
+### This adds the current highscore to the saved highscores
+### Then returns to the main menu scene
 func returnToMenu():
 	save_highscore()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
+# Updates the displayed score every second
+# Displays the Victory Message based on the score
 func updateScore():
 	score = int($Player.position.y/100)*10
 	$Overlay.update_score(score)
-	#$RigidBodyPlayer.freeze = false
 	
-	if(score > 1000 && score < 1200):
-		print("Victory Message")
+	if(score > 2000 && score < 2200):
 		$Overlay.announce("Happy", "Well done Dr. Ill!
 		Soon the world will burn and everyone will live on the moon")
 		$ScoldTimer.start(5)
-	if(score > 1180 && score < 1300):
+		$GameOverDelayTimer.start(5)
+	if(score > 10000):
 		returnToMenu()
 		
 
-
+### Together with load_highscore saves the current highscore to the end of the highscore file
 func save_highscore():
 	var highscore = load_highScore()
 	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
@@ -85,6 +97,7 @@ func save_highscore():
 		
 # Note: This can be called from anywhere inside the tree. This function
 # is path independent.
+### Together with save_highscore saves the current highscore to the end of the highscore file
 func load_highScore():
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.

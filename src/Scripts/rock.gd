@@ -81,7 +81,7 @@ func _init():
 	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		print("Collision!")
+		print("Collision! X=", position.x, " Y=", position.y )
 		emit_signal("collision")
 		hide()
 		
