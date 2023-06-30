@@ -52,7 +52,6 @@ scale = Vector2(1.00318, 1.00282)
 polygon = PackedVector2Array(0.151123, 15.0587, -14.8014, -14.8568, 15.1036, -14.8568)
 
 [node name="Trail" type="Line2D" parent="."]
-visible = false
 z_index = -1
 width = 30.0
 default_color = Color(0.117647, 0.0627451, 0.027451, 0.772549)

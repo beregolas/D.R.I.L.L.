@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://u82lved6ub76"]
+[gd_scene load_steps=4 format=3 uid="uid://dcrul5je4lv2"]
 
 [ext_resource type="Script" path="res://Scenes/region.gd" id="1_h76cs"]
-[ext_resource type="Texture2D" uid="uid://bnrvpboooa8no" path="res://Images/dirt_background.png" id="2_2awge"]
+[ext_resource type="Texture2D" path="res://Images/dirt_background.png" id="2_2awge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duc53"]
 size = Vector2(4000, 4000)
