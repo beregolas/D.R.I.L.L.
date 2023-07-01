@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcrul5je4lv2"]
+[gd_scene load_steps=8 format=3 uid="uid://dcrul5je4lv2"]
 
 [ext_resource type="Script" path="res://Scenes/region.gd" id="1_h76cs"]
 [ext_resource type="Texture2D" uid="uid://bnrvpboooa8no" path="res://Images/dirt_background.png" id="2_2awge"]
 [ext_resource type="Shader" path="res://shader/region.gdshader" id="2_bxppd"]
+[ext_resource type="PackedScene" uid="uid://cmhxqt3ucu2om" path="res://Scenes/exlosion_animations.tscn" id="4_l028k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duc53"]
 size = Vector2(4000, 4000)
@@ -40,6 +41,10 @@ offset_top = -486.0
 offset_right = 721.0
 offset_bottom = 3523.0
 texture = SubResource("CanvasTexture_emtrc")
+
+[node name="explosion_animations" parent="." instance=ExtResource("4_l028k")]
+visible = false
+position = Vector2(-842, -543)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

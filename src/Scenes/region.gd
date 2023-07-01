@@ -1,7 +1,7 @@
 extends Area2D
 
 var last_region = null
-var max_number_of_regions:int = 3
+var max_number_of_regions:int = 4
 var current_region_number:int = 1
 #size of region is set in the shape.shape menu
 func _init():
@@ -50,6 +50,7 @@ func modulate_color():
 		
 		$texture.modulate = Color(red_hue, green_hue,blue_hue )
 	else:
+		$explosion_animations.show()
 		$earthcore.show()
 		
 		#$texture.material.set_shader(load("res://shader/region.gdshader"))
@@ -82,10 +83,12 @@ func _on_body_exited(body):
 func win_if_last_region():
 	if current_region_number==max_number_of_regions:
 		var player = get_parent().get_node("Player")
+		player.get_node("Trail").hide()
 		player.drilling_speed = 7000
 		player.rotation_speed = 80
 		get_parent().win()
 		if last_region !=null:
 			last_region.queue_free()
+		$explosion_animations.explode()
 		#queue_free()
 		return true
