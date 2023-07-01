@@ -21,12 +21,7 @@ func _physics_process(delta):
 	var velocity = direction * speed * delta
 	position += velocity
 	distance_traveled += abs(velocity.x)
-	
-	if direction.x < 0:
-		$AnimatedSprite2D.flip_h = true
-	else:
-		$AnimatedSprite2D.flip_h = false
-
+	$AnimatedSprite2D.flip_h = direction.x < 0
 	if distance_traveled >= patrol_distance or position.x <= 0 or position.x >= get_viewport().size.x:
 		direction = -direction
 		distance_traveled = 0
