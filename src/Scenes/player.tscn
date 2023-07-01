@@ -35,12 +35,14 @@ sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
 
 [node name="GhostRight" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
 script = ExtResource("4_85sa4")
 
 [node name="GhostLeft" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"

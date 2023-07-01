@@ -4,6 +4,7 @@ extends CharacterBody2D
 var screen_size
 @export var rotation_speed = 100
 @export var maximum_angle = 80
+var heat_color = 1
 var current_trail = null
 var speed_factor = 1.0
 var alive = true
@@ -24,17 +25,19 @@ func _ready():
 	pass # Replace with function body.
 
 
-
-
+#function that gets called when the player gets hit, makes the drill more red
+func hit():
+	heat_color= heat_color-0.2
+	$Sprite.modulate = Color(1,heat_color,heat_color)
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	# check for doodle jump warp
 	if self.position.x < 0:
-		
 		self.position.x += 1000
 		create_new_trail()
 	elif self.position.x > 1000:
-		
 		self.position.x -= 1000
 		create_new_trail()
 	if alive:

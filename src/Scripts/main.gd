@@ -31,15 +31,16 @@ func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float,
 	for i in range(amountofRocks):
 		var rock = scene.instantiate()
 		rock.position =  Vector2(randf_range(min_x,max_x), randf_range(min_y, max_y))
-		rock.collision.connect(scoldPlayer)
+		rock.collision.connect(looseLife)
 		add_child(rock)
 		rocks.append(rock)
 	
 
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
-func scoldPlayer():
+func looseLife():
 	collisionsCounter += 1
+	$Player.hit()
 	if(collisionsCounter<lives):
 		var scoldings = ["You fool!",
 						"You should NOT hit the rocks!", 

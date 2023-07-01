@@ -10,7 +10,9 @@ func _ready():
 	target = get_node(targetPath)
 	pass # Replace with function body.
 
-
+func hit():
+	print("backmodulation")
+	modulate = Color(1,1,1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
