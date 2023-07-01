@@ -1,6 +1,7 @@
 extends Area2D
 
 var last_region = null
+
 #size of region is set in the shape.shape menu
 func _init():
 	pass
@@ -45,16 +46,14 @@ func modulate_color():
 	
 
 func _on_body_entered(body):
-	
-	print("entered new region")
 	if body.is_in_group("player"):
 		change_player_movement()
 		create_next_region()
 		
 func change_player_movement():
 	var player = get_parent().get_node("Player")
-	player.drilling_speed = player.drilling_speed*1.5
-	player.rotation_speed = player.rotation_speed + randf_range(-10,10)
+	player.randomize_speed_and_rotation()
+	
 
 func delete_last_region():
 	if self.last_region != null:

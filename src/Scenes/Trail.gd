@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position = Vector2(0,-10)
+	global_position = Vector2(0,0)
 	global_rotation = 0
 	point = target.global_position
 	#finished is set when the player leaves the screen

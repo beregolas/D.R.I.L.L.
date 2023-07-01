@@ -1,13 +1,18 @@
 extends CharacterBody2D
 
-@export var drilling_speed = 8000 #speed pixels/sec
+@export var drilling_speed = 70000 #speed pixels/sec
 var screen_size
-@export var rotation_speed = 60.0
+@export var rotation_speed = 100
 @export var maximum_angle = 80
 var current_trail = null
 var speed_factor = 1.0
-
 var alive = true
+var speeds = [20000,30000,40000,50000,60000,70000]
+var rotation_speeds = [60,80,120,200,300,400,500,600,700]
+var low_rotation_speeds = [60,80,120,200]
+var high_rotation_speeds = [400,500,600,700]
+var low_speeds = [20000,30000,40000]
+var high_speeds = [50000,60000,70000]
 
 var death_rotation = 0
 var death_direction = Vector2(0, 0)
@@ -45,9 +50,18 @@ func _physics_process(delta):
 		self.position += death_direction * delta
 		
 
+func randomize_speed_and_rotation():
+	if randi()%3 == 0:
+		#pick slow mode, if you low rotation speed, you cant have high drill speed, otherwise you can't react
+		drilling_speed = low_speeds[randi() % low_speeds.size()]
+		rotation_speed = low_rotation_speeds[randi() % low_rotation_speeds.size()]
+	else:
+		#high rotation speed can be paired with both high and low speeds
+		drilling_speed = speeds[randi() % speeds.size()]
+		rotation_speed = high_rotation_speeds[randi() % high_rotation_speeds.size()]
+	
 
 func create_new_trail():
-	
 	current_trail.finished = true
 	var new_trail = current_trail.duplicate()
 	new_trail.finished = false
