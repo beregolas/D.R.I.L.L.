@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var drilling_speed = 70000 #speed pixels/sec
+@export var drilling_speed = 7000 #speed pixels/sec
 var screen_size
 @export var rotation_speed = 100
 @export var maximum_angle = 80
