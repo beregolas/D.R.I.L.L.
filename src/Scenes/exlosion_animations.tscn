@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmhxqt3ucu2om"]
+
+[ext_resource type="Script" path="res://exlosion_animations.gd" id="1_y6i5e"]
+[ext_resource type="Texture2D" uid="uid://d22stsekm1ovo" path="res://Images/explosions/explosion-6.png" id="2_dgaea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6elxc"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg2cj"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvi7y"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfbhd"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8kdt"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4jw1"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgn0u"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayg2j"]
+atlas = ExtResource("2_dgaea")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2e1sa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6elxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg2cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvi7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfbhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8kdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4jw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgn0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayg2j")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 12.0
+}]
+
+[node name="exlosion_animations" type="Node2D"]
+script = ExtResource("1_y6i5e")
+
+[node name="explosion1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(121, 103)
+sprite_frames = SubResource("SpriteFrames_2e1sa")
+animation = &"explosion"
+
+[node name="explosion2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(307, 71)
+sprite_frames = SubResource("SpriteFrames_2e1sa")
+animation = &"explosion"
+frame_progress = 0.102958
+
+[node name="explosion3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(127, -8)
+sprite_frames = SubResource("SpriteFrames_2e1sa")
+animation = &"explosion"
+frame_progress = 1.0
+
+[node name="explosion4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-13, 127)
+scale = Vector2(1, 0.786)
+sprite_frames = SubResource("SpriteFrames_2e1sa")
+animation = &"explosion"
+frame = 7
+frame_progress = 1.0
