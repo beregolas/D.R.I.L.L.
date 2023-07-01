@@ -14,16 +14,23 @@ var low_rotation_speeds = [60,80,120,200]
 var high_rotation_speeds = [400,500,600,700]
 var low_speeds = [20000,30000,40000]
 var high_speeds = [50000,60000,70000]
-
+var debug = false
 var death_rotation = 0
 var death_direction = Vector2(0, 0)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if debug:
+		debug_run()
 	current_trail = $Trail
 	pass # Replace with function body.
 
+
+func debug_run():
+	drilling_speed = 70000
+	get_parent().lives = 1000
+	rotation_speed = 0
 
 #function that gets called when the player gets hit, makes the drill more red
 func hit():
@@ -54,6 +61,8 @@ func _physics_process(delta):
 		
 
 func randomize_speed_and_rotation():
+	if debug:
+		return
 	if randi()%3 == 0:
 		#pick slow mode, if you low rotation speed, you cant have high drill speed, otherwise you can't react
 		drilling_speed = low_speeds[randi() % low_speeds.size()]

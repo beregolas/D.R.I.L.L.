@@ -1,7 +1,7 @@
 extends Area2D
 
 var last_region = null
-var max_number_of_regions:int = 6
+var max_number_of_regions:int = 3
 var current_region_number:int = 1
 #size of region is set in the shape.shape menu
 func _init():
@@ -39,17 +39,20 @@ func create_next_region():
 	next_region.last_region = self
 	next_region.current_region_number= self.current_region_number+1
 	get_parent().add_child(next_region)
+	
 
 func modulate_color():
-	var blue_hue = randf_range(0.4,1)
-	var green_hue = randf_range(0.4,1)
-	var red_hue = randf_range(0.5,1)
+	$earthcore.hide()
+	var blue_hue = randf_range(0,1)
+	var green_hue = randf_range(0,1)
+	var red_hue = randf_range(0,1)
 	if current_region_number != max_number_of_regions:
-		$texture.material.set_shader(null)
+		
 		$texture.modulate = Color(red_hue, green_hue,blue_hue )
 	else:
-		print("winning_text")
-		$texture.material.set_shader(load("res://shader/region.gdshader"))
+		$earthcore.show()
+		
+		#$texture.material.set_shader(load("res://shader/region.gdshader"))
 		
 		
 	
@@ -78,12 +81,11 @@ func _on_body_exited(body):
 	
 func win_if_last_region():
 	if current_region_number==max_number_of_regions:
-		print("winning")
 		var player = get_parent().get_node("Player")
 		player.drilling_speed = 7000
 		player.rotation_speed = 80
 		get_parent().win()
 		if last_region !=null:
 			last_region.queue_free()
-		queue_free()
+		#queue_free()
 		return true
