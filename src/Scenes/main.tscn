@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=17 format=3 uid="uid://c5fwih4hwm4qg"]
 
-[ext_resource type="PackedScene" uid="uid://coc36dmot6hcb" path="res://Scenes/section.tscn" id="1_8r36e"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="1_uuuce"]
 [ext_resource type="PackedScene" uid="uid://cl4mlk7de2bgc" path="res://Scenes/player.tscn" id="2_6qlue"]
@@ -505,9 +504,6 @@ offset_right = 1166.0
 offset_bottom = 10884.0
 texture = SubResource("GradientTexture2D_p3teu")
 flip_v = true
-
-[node name="Section" parent="." instance=ExtResource("1_8r36e")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("2_6qlue")]
 z_index = 10

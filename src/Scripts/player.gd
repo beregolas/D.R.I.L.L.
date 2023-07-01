@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var drilling_speed = 7000 #speed pixels/sec
 var screen_size
-@export var rotation_speed = 100
+@export var rotation_speed = 80
 @export var maximum_angle = 80
 var heat_color = 1
 var current_trail = null
@@ -76,6 +76,7 @@ func test_call(message):
 	print(message)
 
 
+	
 func die():
 	self.death_rotation = randf_range(-60, 60)
 	self.death_direction = Vector2(randf_range(-8, 8), randf_range(-8, 8))

@@ -83,7 +83,9 @@ func updateScore():
 	if(score > 10000):
 		returnToMenu()
 		
-
+func win():
+	print("you win")
+	pass
 ### Together with load_highscore saves the current highscore to the end of the highscore file
 func save_highscore():
 	var highscore = load_highScore()
