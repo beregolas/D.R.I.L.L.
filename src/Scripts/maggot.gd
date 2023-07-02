@@ -4,7 +4,7 @@ signal collision
 var speed = 50  # Geschwindigkeit der Bewegung
 var direction = Vector2(1, 0)  # Richtung der Bewegung
 var patrol_distance = 200
-var distance_traveled = 0
+var distance_traveled = randi_range(0, 200)
 
 
 # Called when the node enters the scene tree for the first time.
