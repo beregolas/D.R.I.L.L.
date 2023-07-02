@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5j8w0"]
 size = Vector2(23, 11)
 
-[node name="Maggot" type="StaticBody2D"]
+[node name="Maggot" type="Area2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_gpg3x")
 
@@ -57,4 +57,5 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5j8w0")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

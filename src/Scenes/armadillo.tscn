@@ -164,7 +164,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yrcko"]
 radius = 7.0
 
-[node name="Armadillo" type="StaticBody2D"]
+[node name="Armadillo" type="Area2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_yvuk6")
 
@@ -182,4 +182,5 @@ scale = Vector2(1.4, 0.7)
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_yrcko")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

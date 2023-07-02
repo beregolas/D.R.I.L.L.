@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
-[ext_resource type="PackedScene" uid="uid://dcrul5je4lv2" path="res://Scenes/region.tscn" id="13_gtwrt"]
 [ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
@@ -526,10 +525,13 @@ layer_0/name = "Layer 0"
 layer_0/tile_data = PackedInt32Array(2, 131072, 0, 3, 196608, 0, 4, 65536, 0, 5, 131072, 0, 6, 196608, 0, 7, 65536, 0, 8, 131072, 0, 9, 196608, 0, 13, 196608, 0, 12, 131072, 0, 11, 65536, 0, 10, 131072, 0, 65538, 131072, 1, 65539, 196608, 1, 65540, 65536, 1, 65541, 131072, 1, 65542, 196608, 1, 65543, 65536, 1, 65544, 131072, 1, 65545, 196608, 1, 65546, 65536, 1, 65547, 131072, 1, 65548, 196608, 1, 65549, 65536, 1, 196610, 65536, 2, 327682, 196608, 3, 262146, 65536, 2, 196611, 65536, 2, 262147, 65536, 2, 327683, 196608, 3, 196621, 65536, 2, 262157, 65536, 2, 327693, 65536, 2, 196609, 65536, 2, 262145, 65536, 2, 327681, 196608, 3, 1, 65536, 0, 65537, 65536, 1, 65550, 131072, 1, 14, 196608, 0, 196612, 65536, 2, 196613, 65536, 2, 196614, 65536, 2, 196615, 65536, 2, 196616, 65536, 2, 196617, 65536, 2, 196618, 65536, 2, 196619, 65536, 2, 196620, 65536, 2, 196622, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 65536, 2, 262154, 65536, 2, 262155, 65536, 2, 262156, 65536, 2, 262158, 65536, 2, 327684, 196608, 3, 327685, 196608, 3, 327686, 196608, 3, 327688, 196608, 3, 327687, 196608, 3, 327689, 196608, 3, 327690, 196608, 3, 327691, 196608, 3, 327692, 196608, 3, 327694, 131072, 3, 393217, 131072, 3, 393218, 131072, 3, 393219, 131072, 3, 393220, 131072, 3, 393221, 131072, 3, 393222, 131072, 3, 393223, 131072, 3, 393224, 131072, 3, 393225, 131072, 3, 393226, 131072, 3, 393227, 131072, 3, 393228, 131072, 3, 393229, 131072, 3, 393230, 131072, 3, 458753, 65536, 3, 458754, 65536, 3, 458755, 65536, 3, 458756, 65536, 3, 458757, 65536, 3, 458758, 65536, 3, 458759, 65536, 3, 458760, 65536, 3, 458761, 65536, 3, 458762, 65536, 3, 458763, 65536, 3, 458764, 65536, 3, 458765, 65536, 3, 458766, 65536, 3, 0, 131072, 0, 65536, 131072, 1, 196608, 65536, 2, 262144, 65536, 2, 327680, 196608, 3, 393216, 131072, 3, 458752, 65536, 3, 131072, 65536, 2, 131073, 65536, 2, 131074, 65536, 2, 131075, 65536, 2, 131076, 65536, 2, 131077, 65536, 2, 131079, 65536, 2, 131080, 65536, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 131084, 65536, 2, 131085, 65536, 2, 131086, 65536, 2, 131078, 65536, 2)
 
 [node name="Rock" parent="." instance=ExtResource("3_4vsfx")]
+visible = false
 position = Vector2(205, 437)
 scale = Vector2(2, 2)
 
 [node name="Garbage" parent="." instance=ExtResource("10_k2kf4")]
+visible = false
+position = Vector2(574, 965)
 
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
 position = Vector2(519, 533)
@@ -542,12 +544,15 @@ follow = NodePath("../Player")
 preferred_distance = 0
 
 [node name="Lava" parent="." instance=ExtResource("11_jcex6")]
+visible = false
 position = Vector2(216, 1113)
 
 [node name="Maggot" parent="." instance=ExtResource("12_y6ley")]
+visible = false
 position = Vector2(163, 1691)
 
 [node name="Armadillo" parent="." instance=ExtResource("13_k26o4")]
+visible = false
 position = Vector2(919, 296)
 
 [node name="ScoreUpdateTimer" type="Timer" parent="."]
@@ -563,8 +568,12 @@ one_shot = true
 
 [node name="region" parent="." instance=ExtResource("13_gtwrt")]
 
+[node name="ObstacleTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]
 [connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
 [connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
 [connection signal="timeout" from="GameOverDelayTimer" to="." method="returnToMenu"]
+[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

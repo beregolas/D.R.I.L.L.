@@ -30,6 +30,7 @@ func new_game():
 	#instantiate_obstacles(20, 0, 900, 10000, 15000, "res://Scenes/lava.tscn")
 	#instantiate_obstacles(100, 0, 900, 0, 20000, "res://Scenes/maggot.tscn")
 	#instantiate_obstacles(10, 0, 900, 0, 23000, "res://Scenes/armadillo.tscn")
+	$ObstacleTimer.start()
 	
 	
 ### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y		
@@ -118,3 +119,9 @@ func load_highScore():
 	save_game.close()	
 	return highscores
 		
+
+
+func _on_obstacle_timer_timeout():
+	var min_pos = $FollowCamera.position.y + get_viewport().size.y
+	print("obstacle ", min_pos, " : ", get_viewport().size.y)
+	instantiate_rocks(5, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y)
