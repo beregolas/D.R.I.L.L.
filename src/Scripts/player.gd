@@ -14,7 +14,7 @@ var low_rotation_speeds = [60,80,120,200]
 var high_rotation_speeds = [400,500,600,700]
 var low_speeds = [20000,30000,40000]
 var high_speeds = [50000,60000,70000]
-var debug = false
+var debug = true
 var death_rotation = 0
 var death_direction = Vector2(0, 0)
 
@@ -28,7 +28,7 @@ func _ready():
 
 
 func debug_run():
-	drilling_speed = 70000
+	drilling_speed = 30000
 	get_parent().lives = 1000
 	rotation_speed = 0
 

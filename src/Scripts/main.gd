@@ -37,7 +37,7 @@ func displaySpeech():
 func holdSpeech(speechLines):
 	lines = speechLines
 	currentLine = 0
-	$longSpeechTimer.start(3)
+	$longSpeechTimer.start(3.5)
 	$ObstacleTimer.start(50)
 	displaySpeech()
 
@@ -51,6 +51,7 @@ func introductorySpeech():
 	"You agreed to fix this. \nYou change direction by pressing \"SPACE\". \n\nBe careful what you drill into!"
 	]
 	holdSpeech(introLines)
+	$"Player/Introductory Player".play()
 	#$FollowCamera.camera_speed = lerp(0.005, 0.9, 0.05)
 	print("Lerping")
 	
@@ -148,7 +149,8 @@ func updateScore():
 func win():
 	print("you win")
 	invincible = true
-	$"Player/zark voiceplayer 4".play()
+	$"Player/wohoo".play()
+	$Player/OutroText.play()
 	$Overlay.announce("Happy", "Well done Dr. Ill!
 		Soon the world will burn and everyone will live on the moon")
 	$ScoldTimer.start(5)
