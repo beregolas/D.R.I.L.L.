@@ -4,6 +4,11 @@ var rocks = []
 var obstacles = []
 var collisionsCounter:int
 var obstaclesPaths = ["res://Scenes/rock.tscn", "res://Scenes/garbage.tscn", "res://Scenes/lava.tscn", "res://Scenes/maggot.tscn", "res://Scenes/armadillo.tscn"]
+var currentLine = 0
+var lines = []
+var goalTextPointer = 0
+var reachedGoal = 0
+var invincible:bool
 
 @export var lives = 3
 
@@ -17,25 +22,75 @@ func _ready():
 func _process(delta):
 	pass
 
+func displaySpeech():
+	if(currentLine==lines.size()):
+		$longSpeechTimer.stop()
+		_hideScolding()
+		$ObstacleTimer.start(2)
+		currentLine = 0
+		invincible = false
+		return
+	$Overlay.announce("normal", lines[currentLine])
+	currentLine += 1
+
+func holdSpeech(speechLines):
+	lines = speechLines
+	currentLine = 0
+	$longSpeechTimer.start(3)
+	$ObstacleTimer.start(50)
+	displaySpeech()
+	invincible = true
+	
+	
+func introductorySpeech():
+	var introLines = ["Hello fellow human.\nWith the release of the gapple pro headset, the downfall \nof earth is invetiable.",
+	"To save humanity from this grim fate, I have constructed \na moon base.",
+	"The only one problem: not enough people signed up \nto relocate.",
+	"You agreed to fix this. \nYou change direction by pressing \"SPACE\". \n\nBe careful what you drill into!"
+	]
+	holdSpeech(introLines)
+	#$FollowCamera.camera_speed = lerp(0.005, 0.9, 0.05)
+	print("Lerping")
+	
+	
+func reachingMilestone():
+	print("GOAL!")
+	var goalOneLines = [
+		"Good job! You have caused the Vesuv to erupt and \ncaused thousands to seek shelter on the moon!",
+		"If you make it to the moon, you woull be awarded a\n food coupon for one smoked meat.",
+	]
+	
+	var goalTwoLines = [
+		"Good job, you are halfway to the core!",
+		"So far you've flooded the netherlands and silicon valley!
+		We saved all moogle employes!",
+	]
+	
+	var goalThreeLines = [
+		"Almost there my fellow human!
+		We have \"saved\" as many people as fit into the moon base \nright now.",
+		"Now carry on and exterminate all those peasants\n which didn't have the finances to migrate earlier!"
+	]
+	
+	var goaltexts = [goalOneLines, goalTwoLines, goalThreeLines]
+	holdSpeech(goaltexts[goalTextPointer])
+	goalTextPointer += 1
 
 func new_game():
-	$Overlay.show_zark(false)
 	score = 0
+	introductorySpeech()
+	
 
 	$Overlay.update_score(score)
 	var region = load("res://Scenes/region.tscn").instantiate()
 	add_child(region)
-	#Rocks # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
-#	instantiate_obstacles(20, 0, 900,   100, 10000, "res://Scenes/rock.tscn")
-#	instantiate_obstacles(100, 0, 900, 0, 15000, "res://Scenes/garbage.tscn")
-#	instantiate_obstacles(20, 0, 900, 10000, 15000, "res://Scenes/lava.tscn")
-#	instantiate_obstacles(100, 0, 900, 0, 20000, "res://Scenes/maggot.tscn")
-#	instantiate_obstacles(300, 0, 900, 0, 23000, "res://Scenes/armadillo.tscn")
-	$ObstacleTimer.start()
 
 
 ### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y
 func instantiate_obstacles(amountofObstacles:int, min_x:float, max_x:float, min_y:float, max_y:float, path:String ):
+	if($ObstacleTimer.wait_time==2):
+		print("Wait time: ", $ObstacleTimer.wait_time)
+		$ObstacleTimer.start(10)
 	var scene = load(path)
 	for i in range(amountofObstacles):
 		var obstacle = scene.instantiate()
@@ -48,6 +103,8 @@ func instantiate_obstacles(amountofObstacles:int, min_x:float, max_x:float, min_
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
 func looseLife():
+	if(invincible):
+		return
 	collisionsCounter += 1
 	$Player.hit()
 	if(collisionsCounter<lives):
@@ -87,11 +144,11 @@ func updateScore():
 
 func win():
 	print("you win")
+	invincible = true
 	$Overlay.announce("Happy", "Well done Dr. Ill!
 		Soon the world will burn and everyone will live on the moon")
 	$ScoldTimer.start(5)
-	$GameOverDelayTimer.start(5)
-	
+	$GameOverDelayTimer.start(6)
 	pass
 
 
@@ -124,6 +181,7 @@ func load_highScore():
 
 
 func _on_obstacle_timer_timeout():
+	print("Generating obstacles	")
 	var min_pos = $FollowCamera.position.y + get_viewport().size.y
 	var maxObsticlesPerScreen = 30
 	var amount_of_type:int

@@ -1,7 +1,9 @@
 extends Area2D
 
+signal milestoneReached
+
 var last_region = null
-var max_number_of_regions:int = 2
+var max_number_of_regions:int = 8
 var current_region_number:int = 1
 #size of region is set in the shape.shape menu
 func _init():
@@ -39,6 +41,7 @@ func create_next_region():
 	next_region.last_region = self
 	next_region.current_region_number= self.current_region_number+1
 	get_parent().add_child(next_region)
+	milestoneReached.connect(get_parent().reachingMilestone)
 	
 
 func modulate_color():
@@ -65,6 +68,12 @@ func _on_body_entered(body):
 			return
 		else:
 			create_next_region()
+		if( current_region_number==int(0.25*max_number_of_regions) ||
+			current_region_number==int(0.5 *max_number_of_regions) ||
+			current_region_number==int(0.75*max_number_of_regions)):
+			print("Signal emitted. Current region ", current_region_number, "of ", max_number_of_regions)
+			milestoneReached.emit()
+		
 		
 func change_player_movement():
 	var player = get_parent().get_node("Player")

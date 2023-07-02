@@ -80,30 +80,30 @@ script = ExtResource("1_h4hve")
 
 [node name="ScoreLabel" type="Label" parent="."]
 top_level = true
-offset_left = 525.0
-offset_top = -12.0
-offset_right = 667.0
-offset_bottom = 231.0
+offset_left = 832.0
+offset_top = 2.0
+offset_right = 1116.0
+offset_bottom = 245.0
 theme_override_fonts/font = ExtResource("1_08461")
-theme_override_font_sizes/font_size = 100
-text = "0"
+theme_override_font_sizes/font_size = 50
+text = "1000"
 
 [node name="Subtitles" type="Label" parent="."]
-visible = false
-offset_left = 1.0
-offset_top = 304.0
-offset_right = 1989.0
-offset_bottom = 547.0
+offset_left = 4.0
+offset_top = 489.0
+offset_right = 1992.0
+offset_bottom = 732.0
 theme_override_fonts/font = ExtResource("1_08461")
 theme_override_font_sizes/font_size = 32
-text = "Well done Dr. Ill!
+text = "Hello fellow human.
+With the release of the gapple pro headset, the downfall 
+of earth is invetiable.
 
-Soon the world will burn and everyone will live on the moon"
+"
 autowrap_mode = 2
 
 [node name="Zark" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(872, 131)
+position = Vector2(882, 165)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_shs02")
 animation = &"sad_animated"

@@ -506,10 +506,9 @@ flip_v = true
 
 [node name="Player" parent="." instance=ExtResource("2_6qlue")]
 z_index = 10
-position = Vector2(580, 180)
+position = Vector2(580, 100)
 
 [node name="Background" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 position = Vector2(580, 321)
 scale = Vector2(2.40833, 2.36029)
@@ -517,7 +516,7 @@ texture = ExtResource("4_mfu6c")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
-position = Vector2(2.08165e-12, 250)
+position = Vector2(0, 500)
 scale = Vector2(4.9, 4.9)
 tile_set = SubResource("TileSet_kujdx")
 format = 2
@@ -534,7 +533,7 @@ visible = false
 position = Vector2(574, 965)
 
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
-position = Vector2(519, 533)
+position = Vector2(519, 550)
 offset = Vector2(0, 200)
 limit_left = 0
 limit_right = 1000
@@ -567,6 +566,10 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="longSpeechTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 10.0
 
@@ -575,4 +578,5 @@ wait_time = 10.0
 [connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
 [connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
 [connection signal="timeout" from="GameOverDelayTimer" to="." method="returnToMenu"]
+[connection signal="timeout" from="longSpeechTimer" to="." method="displaySpeech"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]

@@ -40,6 +40,16 @@ func hit():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if(self.position.y < 560):
+		self.position.y += 1
+		$Trail.trail_length = 0
+		return
+	else:
+		$Trail.trail_length = 3000
+		$Trail.visible = true
+		
+	
+		
 	# check for doodle jump warp
 	if self.position.x < 0:
 		self.position.x += 1000
