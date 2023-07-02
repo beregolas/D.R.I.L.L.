@@ -9,6 +9,7 @@ var lines = []
 var goalTextPointer = 0
 var reachedGoal = 0
 var invincible:bool
+var zarkVoices = []
 
 @export var lives = 3
 
@@ -39,6 +40,7 @@ func holdSpeech(speechLines):
 	$longSpeechTimer.start(3)
 	$ObstacleTimer.start(50)
 	displaySpeech()
+
 	invincible = true
 	
 	
@@ -74,12 +76,13 @@ func reachingMilestone():
 	
 	var goaltexts = [goalOneLines, goalTwoLines, goalThreeLines]
 	holdSpeech(goaltexts[goalTextPointer])
+	zarkVoices[goalTextPointer].play() 
 	goalTextPointer += 1
 
 func new_game():
 	score = 0
 	introductorySpeech()
-	
+	zarkVoices = [$"Player/zark voiceplayer 1", $"Player/zark voiceplayer 2", $"Player/zark voiceplayer 3"]
 
 	$Overlay.update_score(score)
 	var region = load("res://Scenes/region.tscn").instantiate()
@@ -145,6 +148,7 @@ func updateScore():
 func win():
 	print("you win")
 	invincible = true
+	$"Player/zark voiceplayer 4".play()
 	$Overlay.announce("Happy", "Well done Dr. Ill!
 		Soon the world will burn and everyone will live on the moon")
 	$ScoldTimer.start(5)
