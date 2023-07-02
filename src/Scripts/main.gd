@@ -10,7 +10,7 @@ var collisionsCounter:int
 func _ready():
 	new_game()
 	$Overlay.show()
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,20 +20,20 @@ func _process(delta):
 func new_game():
 	$Overlay.show_zark(false)
 	score = 0
-	
+
 	$Overlay.update_score(score)
 	var region = load("res://Scenes/region.tscn").instantiate()
 	add_child(region)
 	#Rocks # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
-	instantiate_obstacles(20, 0, 900,   100, 10000, "res://Scenes/rock.tscn") 
+	instantiate_obstacles(20, 0, 900,   100, 10000, "res://Scenes/rock.tscn")
 	#instantiate_obstacles(100, 0, 900, 0, 15000, "res://Scenes/garbage.tscn")
 	#instantiate_obstacles(20, 0, 900, 10000, 15000, "res://Scenes/lava.tscn")
 	#instantiate_obstacles(100, 0, 900, 0, 20000, "res://Scenes/maggot.tscn")
 	#instantiate_obstacles(10, 0, 900, 0, 23000, "res://Scenes/armadillo.tscn")
 	$ObstacleTimer.start()
-	
-	
-### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y		
+
+
+### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y
 func instantiate_obstacles(amountofObstacles:int, min_x:float, max_x:float, min_y:float, max_y:float, path:String ):
 	var scene = load(path)
 	for i in range(amountofObstacles):
@@ -51,13 +51,13 @@ func looseLife():
 	$Player.hit()
 	if(collisionsCounter<lives):
 		var scoldings = ["You fool!",
-						"You should NOT hit the rocks!", 
+						"You should NOT hit the rocks!",
 						"Open your Eyes!",
 						"Are you even watching?",
 						"Even my Grandmother could do this better..."
 						]
 		$Overlay.announce("Angry", scoldings.pick_random())
-	
+
 	if(collisionsCounter==lives):
 		$Player.die()
 		$GameOverDelayTimer.start()
@@ -69,7 +69,7 @@ func looseLife():
 func _hideScolding():
 	$Overlay.show_zark(false)
 	$Overlay.show_subtitles(false)
-	
+
 
 ### This adds the current highscore to the saved highscores
 ### Then returns to the main menu scene
@@ -83,7 +83,7 @@ func updateScore():
 	score = int($Player.position.y/100)*10
 	$Overlay.update_score(score)
 
-	
+
 func win():
 	print("you win")
 	$Overlay.announce("Happy", "Well done Dr. Ill!
@@ -103,8 +103,8 @@ func save_highscore():
 		save_file.store_line(str(score))
 	save_file.store_line(str(score)) # current player score
 	save_file.close()
-	
-		
+
+
 # Note: This can be called from anywhere inside the tree. This function
 # is path independent.
 ### Together with save_highscore saves the current highscore to the end of the highscore file
@@ -116,12 +116,12 @@ func load_highScore():
 	var highscores = []
 	while save_game.get_position() < save_game.get_length():
 		highscores.append(save_game.get_line())
-	save_game.close()	
+	save_game.close()
 	return highscores
-		
+
 
 
 func _on_obstacle_timer_timeout():
 	var min_pos = $FollowCamera.position.y + get_viewport().size.y
 	print("obstacle ", min_pos, " : ", get_viewport().size.y)
-	instantiate_rocks(5, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y)
+	instantiate_obstacles(5, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y, "res://Scenes/rock.tscn")
