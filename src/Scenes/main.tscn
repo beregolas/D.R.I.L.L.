@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=16 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="1_uuuce"]
@@ -565,8 +565,6 @@ one_shot = true
 [node name="GameOverDelayTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-
-[node name="region" parent="." instance=ExtResource("13_gtwrt")]
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 10.0

@@ -3,6 +3,7 @@ var score:int
 var rocks = []
 var obstacles = []
 var collisionsCounter:int
+var obstaclesPaths = ["res://Scenes/rock.tscn", "res://Scenes/garbage.tscn", "res://Scenes/lava.tscn", "res://Scenes/maggot.tscn", "res://Scenes/armadillo.tscn"]
 
 @export var lives = 100
 
@@ -25,11 +26,11 @@ func new_game():
 	var region = load("res://Scenes/region.tscn").instantiate()
 	add_child(region)
 	#Rocks # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
-	instantiate_obstacles(20, 0, 900,   100, 10000, "res://Scenes/rock.tscn")
-	#instantiate_obstacles(100, 0, 900, 0, 15000, "res://Scenes/garbage.tscn")
-	#instantiate_obstacles(20, 0, 900, 10000, 15000, "res://Scenes/lava.tscn")
-	#instantiate_obstacles(100, 0, 900, 0, 20000, "res://Scenes/maggot.tscn")
-	#instantiate_obstacles(10, 0, 900, 0, 23000, "res://Scenes/armadillo.tscn")
+#	instantiate_obstacles(20, 0, 900,   100, 10000, "res://Scenes/rock.tscn")
+#	instantiate_obstacles(100, 0, 900, 0, 15000, "res://Scenes/garbage.tscn")
+#	instantiate_obstacles(20, 0, 900, 10000, 15000, "res://Scenes/lava.tscn")
+#	instantiate_obstacles(100, 0, 900, 0, 20000, "res://Scenes/maggot.tscn")
+#	instantiate_obstacles(300, 0, 900, 0, 23000, "res://Scenes/armadillo.tscn")
 	$ObstacleTimer.start()
 
 
@@ -124,4 +125,13 @@ func load_highScore():
 func _on_obstacle_timer_timeout():
 	var min_pos = $FollowCamera.position.y + get_viewport().size.y
 	print("obstacle ", min_pos, " : ", get_viewport().size.y)
-	instantiate_obstacles(5, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y, "res://Scenes/rock.tscn")
+	var maxObsticlesPerScreen = 30
+	var amount_of_type:int
+	for i in range(5):
+		amount_of_type = randi_range(1, 5)
+		if(maxObsticlesPerScreen<amount_of_type):
+			instantiate_obstacles(maxObsticlesPerScreen, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y*5, obstaclesPaths[i])
+			maxObsticlesPerScreen = 0
+		else:	
+			maxObsticlesPerScreen -= amount_of_type
+			instantiate_obstacles(amount_of_type, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y*5, obstaclesPaths[i])
