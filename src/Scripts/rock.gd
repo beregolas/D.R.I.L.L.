@@ -81,11 +81,9 @@ func _init():
 	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		print("Collision! X=", position.x, " Y=", position.y )
 		emit_signal("collision")
 		hide()
 		
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("removed rock")
 	queue_free()

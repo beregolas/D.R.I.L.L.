@@ -535,6 +535,7 @@ position = Vector2(574, 965)
 
 [node name="FollowCamera" type="Camera2D" parent="." node_paths=PackedStringArray("follow")]
 position = Vector2(519, 533)
+offset = Vector2(0, 200)
 limit_left = 0
 limit_right = 1000
 position_smoothing_speed = 100.0

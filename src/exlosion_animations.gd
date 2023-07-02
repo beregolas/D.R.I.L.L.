@@ -27,7 +27,7 @@ func playExplosionLoop():
 	for i in range(total_explosions):	
 		for explosionSprite in explosionSprites:
 			if explosionSprite == null:
-				print("is null")
+				print("explosion is null")
 				continue
 			var randomPosition = Vector2(randi_range(0, get_viewport().size.x), randi_range(0, get_viewport().size.y))
 		

@@ -5,7 +5,7 @@ var obstacles = []
 var collisionsCounter:int
 var obstaclesPaths = ["res://Scenes/rock.tscn", "res://Scenes/garbage.tscn", "res://Scenes/lava.tscn", "res://Scenes/maggot.tscn", "res://Scenes/armadillo.tscn"]
 
-@export var lives = 100
+@export var lives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -52,7 +52,7 @@ func looseLife():
 	$Player.hit()
 	if(collisionsCounter<lives):
 		var scoldings = ["You fool!",
-						"You should NOT hit the rocks!",
+						"You should NOT hit those!",
 						"Open your Eyes!",
 						"Are you even watching?",
 						"Even my Grandmother could do this better..."
@@ -91,6 +91,7 @@ func win():
 		Soon the world will burn and everyone will live on the moon")
 	$ScoldTimer.start(5)
 	$GameOverDelayTimer.start(5)
+	
 	pass
 
 
@@ -124,7 +125,6 @@ func load_highScore():
 
 func _on_obstacle_timer_timeout():
 	var min_pos = $FollowCamera.position.y + get_viewport().size.y
-	print("obstacle ", min_pos, " : ", get_viewport().size.y)
 	var maxObsticlesPerScreen = 30
 	var amount_of_type:int
 	for i in range(5):

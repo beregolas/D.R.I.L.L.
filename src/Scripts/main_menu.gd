@@ -105,7 +105,6 @@ func load_highScore():
 	var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
 	while save_game.get_position() < save_game.get_length():
 		var json_string = save_game.get_line()
-		print(json_string)
 		
 		add_highscore(json_string)
 	save_game.close()
