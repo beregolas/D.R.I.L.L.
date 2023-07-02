@@ -84,12 +84,16 @@ func new_game():
 	score = 0
 	introductorySpeech()
 	zarkVoices = [$"Player/zark voiceplayer 1", $"Player/zark voiceplayer 2", $"Player/zark voiceplayer 3"]
-
 	$Overlay.update_score(score)
+	init_first_region()
+
+
+func init_first_region():
 	var region = load("res://Scenes/region.tscn").instantiate()
 	add_child(region)
-
-
+	var vertical_pixels = region.get_total_length()
+	$Overlay.init_progress_bar(vertical_pixels)
+	
 ### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y
 func instantiate_obstacles(amountofObstacles:int, min_x:float, max_x:float, min_y:float, max_y:float, path:String ):
 	if($ObstacleTimer.wait_time==2):
@@ -142,8 +146,9 @@ func returnToMenu():
 # Updates the displayed score every second
 # Displays the Victory Message based on the score
 func updateScore():
-	score = int($Player.position.y/100)*10
-	$Overlay.update_score(score)
+	$Overlay.update_score($Player.position.y)
+	#we could just send signal directly to overlay but I don't know how to do that
+	
 
 
 func win():

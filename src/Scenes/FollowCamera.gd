@@ -13,6 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
 	var target_y = follow.position.y + preferred_distance
 	position.y = lerp(position.y, target_y, camera_speed)
 	pass

@@ -60,7 +60,10 @@ func modulate_color():
 		
 		
 	
-
+func get_total_length():
+	return (max_number_of_regions-1) * $shape.shape.size.y +1000
+	
+	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
 		change_player_movement()
