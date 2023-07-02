@@ -74,18 +74,17 @@ func returnToMenu():
 func updateScore():
 	score = int($Player.position.y/100)*10
 	$Overlay.update_score(score)
+
 	
-	if(score > 2000 && score < 2200):
-		$Overlay.announce("Happy", "Well done Dr. Ill!
-		Soon the world will burn and everyone will live on the moon")
-		$ScoldTimer.start(5)
-		$GameOverDelayTimer.start(5)
-	if(score > 10000):
-		returnToMenu()
-		
 func win():
 	print("you win")
+	$Overlay.announce("Happy", "Well done Dr. Ill!
+		Soon the world will burn and everyone will live on the moon")
+	$ScoldTimer.start(5)
+	$GameOverDelayTimer.start(5)
 	pass
+
+
 ### Together with load_highscore saves the current highscore to the end of the highscore file
 func save_highscore():
 	var highscore = load_highScore()
