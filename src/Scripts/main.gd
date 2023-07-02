@@ -1,6 +1,7 @@
 extends Node
 var score:int
 var rocks = []
+var obstacles = []
 var collisionsCounter:int
 
 @export var lives = 100
@@ -23,18 +24,24 @@ func new_game():
 	$Overlay.update_score(score)
 	var region = load("res://Scenes/region.tscn").instantiate()
 	add_child(region)
-	instantiate_rocks(20, 000, 900, 100, 10000) # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
-		
-### Generate a parametrazised amount of rocks in a rectangle defined by min_x, max_x, min_y and max_y		
-func instantiate_rocks(amountofRocks:int, min_x:float, max_x:float, min_y:float, max_y:float):
-	var scene = load("res://Scenes/rock.tscn")
-	for i in range(amountofRocks):
-		var rock = scene.instantiate()
-		rock.position =  Vector2(randf_range(min_x,max_x), randf_range(min_y, max_y))
-		rock.collision.connect(looseLife)
-		add_child(rock)
-		rocks.append(rock)
+	#Rocks # amount=10, min_x=0, max_x=900, min_y=100, max_y=10000
+	instantiate_obstacles(20, 0, 900,   100, 10000, "res://Scenes/rock.tscn") 
+	#instantiate_obstacles(100, 0, 900, 0, 15000, "res://Scenes/garbage.tscn")
+	#instantiate_obstacles(20, 0, 900, 10000, 15000, "res://Scenes/lava.tscn")
+	#instantiate_obstacles(100, 0, 900, 0, 20000, "res://Scenes/maggot.tscn")
+	#instantiate_obstacles(10, 0, 900, 0, 23000, "res://Scenes/armadillo.tscn")
 	
+	
+### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y		
+func instantiate_obstacles(amountofObstacles:int, min_x:float, max_x:float, min_y:float, max_y:float, path:String ):
+	var scene = load(path)
+	for i in range(amountofObstacles):
+		var obstacle = scene.instantiate()
+		obstacle.position = Vector2(randf_range(min_x,max_x), randf_range(min_y, max_y))
+		obstacle.collision.connect(looseLife)
+		add_child(obstacle)
+		obstacles.append(obstacle)
+
 
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
