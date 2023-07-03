@@ -1,23 +1,135 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl4mlk7de2bgc"]
+[gd_scene load_steps=36 format=3 uid="uid://cl4mlk7de2bgc"]
 
-[ext_resource type="Texture2D" uid="uid://ckxma15wusbej" path="res://Images/drill.png" id="1_2wk6j"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_a3c6k"]
-[ext_resource type="Texture2D" uid="uid://bh4npiwio0fx4" path="res://Images/drill_2.png" id="2_ge2tj"]
+[ext_resource type="Texture2D" uid="uid://cruilquh5glde" path="res://Images/Drill/0001.png" id="2_lbvte"]
+[ext_resource type="Texture2D" uid="uid://8rvedalc8y1f" path="res://Images/Drill/0002.png" id="3_gnxdo"]
+[ext_resource type="Texture2D" uid="uid://plk3k70tg8yq" path="res://Images/Drill/0003.png" id="4_1lbw6"]
 [ext_resource type="Script" path="res://Scripts/Ghost.gd" id="4_85sa4"]
+[ext_resource type="Texture2D" uid="uid://dqkqsmsixfluf" path="res://Images/Drill/0004.png" id="5_5ojds"]
 [ext_resource type="Script" path="res://Scenes/Trail.gd" id="5_bi0s8"]
+[ext_resource type="Texture2D" uid="uid://bmlrjiyjv4kof" path="res://Images/Drill/0005.png" id="6_8ceew"]
+[ext_resource type="Texture2D" uid="uid://c1vf7pp2u5rhj" path="res://Images/Drill/0006.png" id="7_3x1re"]
+[ext_resource type="Texture2D" uid="uid://bpkjhnry305cm" path="res://Images/Drill/0007.png" id="8_i0kpf"]
+[ext_resource type="Texture2D" uid="uid://c0dsaur2t5j7n" path="res://Images/Drill/0008.png" id="9_64pv5"]
+[ext_resource type="Texture2D" uid="uid://cpokafy87ygwk" path="res://Images/Drill/0009.png" id="10_a43l7"]
+[ext_resource type="Texture2D" uid="uid://cw88vhwihji00" path="res://Images/Drill/0010.png" id="11_170rb"]
+[ext_resource type="Texture2D" uid="uid://d124h5hdq0a02" path="res://Images/Drill/0011.png" id="12_y8yy8"]
+[ext_resource type="Texture2D" uid="uid://b8vqb8sskjos1" path="res://Images/Drill/0012.png" id="13_1evl6"]
+[ext_resource type="Texture2D" uid="uid://d3p5jo4laogkq" path="res://Images/Drill/0013.png" id="14_f5r62"]
+[ext_resource type="Texture2D" uid="uid://ppccmgwnwepw" path="res://Images/Drill/0014.png" id="15_kswj6"]
+[ext_resource type="Texture2D" uid="uid://2tomaaa37nic" path="res://Images/Drill/0015.png" id="16_1qhbp"]
+[ext_resource type="Texture2D" uid="uid://bsaow5kp16fnl" path="res://Images/Drill/0016.png" id="17_sa0hd"]
+[ext_resource type="Texture2D" uid="uid://t362c557kwi6" path="res://Images/Drill/0017.png" id="18_forti"]
+[ext_resource type="Texture2D" uid="uid://bt3hwau4t47pw" path="res://Images/Drill/0018.png" id="19_h8h24"]
+[ext_resource type="Texture2D" uid="uid://dxbgn0aytxrih" path="res://Images/Drill/0019.png" id="20_k46fw"]
+[ext_resource type="Texture2D" uid="uid://pn06vnadu8bi" path="res://Images/Drill/0020.png" id="21_grbiy"]
+[ext_resource type="Texture2D" uid="uid://chdvkxclh8fbg" path="res://Images/Drill/0021.png" id="22_owep2"]
+[ext_resource type="Texture2D" uid="uid://talh5h10acqh" path="res://Images/Drill/0022.png" id="23_c3gwi"]
+[ext_resource type="Texture2D" uid="uid://bb8kevvbx148x" path="res://Images/Drill/0023.png" id="24_8rsbf"]
+[ext_resource type="Texture2D" uid="uid://ch4h1py8popbr" path="res://Images/Drill/0024.png" id="25_f6gsp"]
+[ext_resource type="Texture2D" uid="uid://bw7mueydxtsfr" path="res://Images/Drill/0025.png" id="26_kk1ib"]
+[ext_resource type="Texture2D" uid="uid://b5usvatwtjy3q" path="res://Images/Drill/0026.png" id="27_u41ae"]
+[ext_resource type="Texture2D" uid="uid://be8qbupmriauo" path="res://Images/Drill/0027.png" id="28_skgn7"]
+[ext_resource type="Texture2D" uid="uid://dd8ri1fnfrrqs" path="res://Images/Drill/0028.png" id="29_gmqb0"]
+[ext_resource type="Texture2D" uid="uid://dna2ytkdy8uup" path="res://Images/Drill/0029.png" id="30_3rxln"]
+[ext_resource type="Texture2D" uid="uid://4loa5mngstcf" path="res://Images/Drill/0030.png" id="31_x0b42"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yakxt"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_2wk6j")
+"duration": 0.3,
+"texture": ExtResource("2_lbvte")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_gnxdo")
+}, {
+"duration": 0.3,
+"texture": ExtResource("4_1lbw6")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_5ojds")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ge2tj")
+"texture": ExtResource("6_8ceew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3x1re")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i0kpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_64pv5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a43l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_170rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y8yy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1evl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_f5r62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_kswj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1qhbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_sa0hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_forti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_h8h24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_k46fw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_grbiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_owep2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_c3gwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_8rsbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_f6gsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_kk1ib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_u41ae")
+}, {
+"duration": 0.3,
+"texture": ExtResource("28_skgn7")
+}, {
+"duration": 0.3,
+"texture": ExtResource("29_gmqb0")
+}, {
+"duration": 0.3,
+"texture": ExtResource("30_3rxln")
+}, {
+"duration": 0.3,
+"texture": ExtResource("31_x0b42")
 }],
 "loop": true,
 "name": &"drill",
-"speed": 2.0
+"speed": 90.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_6a6a6"]
@@ -33,6 +145,7 @@ metadata/_edit_group_ = true
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
+frame_progress = 0.651918
 
 [node name="GhostRight" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -51,7 +164,7 @@ script = ExtResource("4_85sa4")
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 position = Vector2(-0.151592, -0.101253)
 scale = Vector2(1.00318, 1.00282)
-polygon = PackedVector2Array(0.151123, 15.0587, -14.8014, -14.8568, 15.1036, -14.8568)
+polygon = PackedVector2Array(0.151093, 40.9857, -11.8109, -38.7894, 12.1131, -37.7922)
 
 [node name="Trail" type="Line2D" parent="."]
 z_index = -1

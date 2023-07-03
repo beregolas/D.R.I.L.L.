@@ -14,7 +14,7 @@ var low_rotation_speeds = [60,80,120,200]
 var high_rotation_speeds = [400,500,600,700]
 var low_speeds = [20000,30000,40000]
 var high_speeds = [50000,60000,70000]
-var debug = true
+var debug = false
 var death_rotation = 0
 var death_direction = Vector2(0, 0)
 
@@ -24,6 +24,9 @@ func _ready():
 	if debug:
 		debug_run()
 	current_trail = $Trail
+	$Sprite.play()
+	$Sprite.speed_scale = 5
+	print("Ready called")
 	pass # Replace with function body.
 
 
@@ -47,6 +50,12 @@ func _physics_process(delta):
 	else:
 		$Trail.trail_length = 3000
 		$Trail.visible = true
+		
+	if(self.drilling_speed>=25000):
+		$Sprite.speed_scale = 3
+	elif(drilling_speed<25000 && drilling_speed>500):
+		$Sprite.speed_scale = 1
+		
 		
 	
 		
@@ -97,6 +106,10 @@ func test_call(message):
 
 	
 func die():
+	self.drilling_speed = 1
+	$Sprite.speed_scale = 0.2
+
+	print("Show me")
 	self.death_rotation = randf_range(-60, 60)
 	self.death_direction = Vector2(randf_range(-8, 8), randf_range(-8, 8))
 	self.alive = false
