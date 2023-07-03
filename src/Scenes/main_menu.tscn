@@ -8,8 +8,11 @@
 script = ExtResource("1_di0iv")
 
 [node name="Background" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 656.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.123273, 0.310031, 0.37912, 1)
 
 [node name="Highscore" type="Label" parent="."]
@@ -21,10 +24,16 @@ text = "Highscore:
 Greg - 200"
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="."]
-offset_left = 280.0
-offset_top = 20.0
-offset_right = 630.0
-offset_bottom = 632.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -251.0
+offset_top = 1.0
+offset_right = 99.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
 [node name="Start" parent="ButtonsContainer" instance=ExtResource("2_sskro")]

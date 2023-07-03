@@ -38,7 +38,7 @@ func _process(delta):
 			get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		if(name=="Kollabohrertief"):
 			Kollabohrertief.emit()
-			get_tree().change_scene_to_file("res://Scenes/main.tscn")
+			get_tree().change_scene_to_file("res://Scenes/main_mp.tscn")
 		if(name=="Explorer Mode"):
 			explorer_mode.emit()
 			get_tree().change_scene_to_file("res://Scenes/main.tscn")

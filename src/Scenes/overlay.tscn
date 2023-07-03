@@ -93,10 +93,10 @@ text = "1000"
 
 [node name="Subtitles" type="RichTextLabel" parent="."]
 z_index = 1
-offset_left = 43.0
-offset_top = 529.0
-offset_right = 984.0
-offset_bottom = 634.0
+offset_left = 49.0
+offset_top = 877.0
+offset_right = 990.0
+offset_bottom = 982.0
 theme_override_fonts/normal_font = ExtResource("1_08461")
 theme_override_font_sizes/normal_font_size = 25
 text = "Hello fellow human.  With the release of the gapple pro headset, the downfall  of earth is invetiable.
@@ -113,12 +113,9 @@ sprite_frames = SubResource("SpriteFrames_shs02")
 animation = &"sad_animated"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-anchors_preset = -1
-anchor_top = 0.027
-anchor_right = 0.027
-anchor_bottom = 0.057
-offset_top = -16.496
-offset_bottom = 612.064
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 37.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/region.gd" id="1_h76cs"]
 [ext_resource type="Texture2D" uid="uid://dvoxm7mdqcvr7" path="res://Images/dirt_background_dark.png" id="2_42ul7"]
 [ext_resource type="Shader" path="res://shader/region.gdshader" id="2_bxppd"]
-[ext_resource type="PackedScene" uid="uid://cmhxqt3ucu2om" path="res://Scenes/exlosion_animations.tscn" id="4_l028k"]
+[ext_resource type="PackedScene" path="res://Scenes/exlosion_animations.tscn" id="4_l028k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duc53"]
 size = Vector2(4000, 4000)

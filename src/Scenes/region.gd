@@ -65,7 +65,7 @@ func get_total_length():
 	
 	
 func _on_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and not body.is_in_group("player2"):
 		change_player_movement()
 		if win_if_last_region():
 			return
@@ -79,8 +79,7 @@ func _on_body_entered(body):
 		
 		
 func change_player_movement():
-	var player = get_parent().get_node("Player")
-	player.randomize_speed_and_rotation()
+	get_parent().randomize_speed_and_rotation()
 	
 
 func delete_last_region():
