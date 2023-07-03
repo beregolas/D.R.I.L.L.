@@ -30,7 +30,7 @@ func displaySpeech():
 		_hideScolding()
 		$ObstacleTimer.start(2)
 		currentLine = 0
-		invincible = false
+		invincible = false 
 		return
 	$Overlay.announce("normal", lines[currentLine])
 	currentLine += 1
@@ -38,7 +38,7 @@ func displaySpeech():
 func holdSpeech(speechLines):
 	lines = speechLines
 	currentLine = 0
-	$longSpeechTimer.start(3.5)
+	$longSpeechTimer.start(4.3)
 	$ObstacleTimer.start(50)
 	displaySpeech()
 
@@ -46,10 +46,11 @@ func holdSpeech(speechLines):
 	
 	
 func introductorySpeech():
-	var introLines = ["Hello fellow human. With the release of the gapple pro headset, the downfall of earth is invetiable.",
-	"To save humanity from this grim fate, I have constructed a moon base.",
-	"The only one problem: not enough people signed up to relocate.",
-	"You agreed to fix this. You change direction by pressing \"SPACE\". \n\nBe careful what you drill into!"
+	var introLines = ["With the release of the gapple headset, the the downfall of earth is invetiable.",
+	"To save humanity I have construced an moon base, but no one wants to go.",
+	"So you simply have to blow up the earth so that everyone has to flee to my moonbase.",
+	"Drill into golden bombs for extra points and avoid everything else.",
+	"We only had money for a spacebar, so that is how you steer",
 	]
 	holdSpeech(introLines)
 	$"Player/Introductory Player".play()
@@ -60,20 +61,17 @@ func introductorySpeech():
 func reachingMilestone():
 	print("GOAL!")
 	var goalOneLines = [
-		"Good job! You have caused the Vesuv to erupt and \ncaused thousands to seek shelter on the moon!",
-		"If you make it to the moon, you woull be awarded a\n food coupon for one smoked meat.",
+		"Different earth layers cause different steering, as any non moogle employee might have noticed."
 	]
 	
 	var goalTwoLines = [
-		"Good job, you are halfway to the core!",
-		"So far you've flooded the netherlands and silicon valley!
-		We saved all moogle employes!",
+		"Well, fellow human, until now you have managed to pull off a passable job there.",
+		 
 	]
 	
 	var goalThreeLines = [
-		"Almost there my fellow human!
-		We have \"saved\" as many people as fit into the moon base \nright now.",
-		"Now carry on and exterminate all those peasants\n which didn't have the finances to migrate earlier!"
+		"You have almost saved the world from gapples advertising free heresy. This moon base will make me so much ad revenue"
+
 	]
 	
 	var goaltexts = [goalOneLines, goalTwoLines, goalThreeLines]
@@ -181,10 +179,9 @@ func win():
 	invincible = true
 	#$"Player/wohoo".play()
 	$Player/OutroText.play()
-	$Overlay.announce("Happy", "Well done Dr. Ill!
-		Soon the world will burn and everyone will live on the moon")
+	$Overlay.announce("Happy", "You did it. You blew up earth. You saved everyone from the heretical gapple and their adblockers. Good job, you may now die.")
 	$ScoldTimer.start(5)
-	$GameOverDelayTimer.start(9)
+	$GameOverDelayTimer.start(15)
 	pass
 
 

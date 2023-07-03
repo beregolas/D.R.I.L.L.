@@ -133,7 +133,8 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_6a6a6"]
-offsets = PackedFloat32Array(0.862816, 0.99639)
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.765343, 0.99639)
 colors = PackedColorArray(0.254515, 0.147492, 0.132206, 1, 0.244776, 0.244776, 0.244776, 0.196078)
 
 [node name="RigidBodyPlayer" type="CharacterBody2D" groups=["player"]]
@@ -168,7 +169,7 @@ polygon = PackedVector2Array(0.151093, 40.9857, -11.8109, -38.7894, 12.1131, -37
 
 [node name="Trail" type="Line2D" parent="."]
 z_index = -1
-width = 30.0
+width = 20.0
 default_color = Color(0.117647, 0.0627451, 0.027451, 0.772549)
 gradient = SubResource("Gradient_6a6a6")
 joint_mode = 1
