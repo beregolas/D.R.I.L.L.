@@ -34,7 +34,7 @@ func debug_run():
 
 #function that gets called when the player gets hit, makes the drill more red
 func hit():
-	heat_color= heat_color-0.2
+	heat_color= heat_color-0.3
 	$Sprite.modulate = Color(1,heat_color,heat_color)
 	
 	

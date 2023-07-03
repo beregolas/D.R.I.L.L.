@@ -76,7 +76,7 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc6qd"]
-bg_color = Color(0.823529, 0.0313726, 0.0823529, 1)
+bg_color = Color(0.823529, 0.0313726, 0.0823529, 0.466667)
 
 [node name="Overlay" type="CanvasLayer"]
 script = ExtResource("1_h4hve")
