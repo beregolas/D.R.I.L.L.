@@ -170,7 +170,7 @@ polygon = PackedVector2Array(0.151093, 40.9857, -11.8109, -38.7894, 12.1131, -37
 [node name="Trail" type="Line2D" parent="."]
 z_index = -1
 width = 20.0
-default_color = Color(0.117647, 0.0627451, 0.027451, 0.772549)
+default_color = Color(0.117647, 0.0627451, 0.027451, 0.87451)
 gradient = SubResource("Gradient_6a6a6")
 joint_mode = 1
 begin_cap_mode = 2

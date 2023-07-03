@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dcrul5je4lv2"]
 
 [ext_resource type="Script" path="res://Scenes/region.gd" id="1_h76cs"]
-[ext_resource type="Texture2D" uid="uid://bnrvpboooa8no" path="res://Images/dirt_background.png" id="2_2awge"]
+[ext_resource type="Texture2D" uid="uid://dvoxm7mdqcvr7" path="res://Images/dirt_background_dark.png" id="2_42ul7"]
 [ext_resource type="Shader" path="res://shader/region.gdshader" id="2_bxppd"]
 [ext_resource type="PackedScene" uid="uid://cmhxqt3ucu2om" path="res://Scenes/exlosion_animations.tscn" id="4_l028k"]
 
@@ -29,7 +29,7 @@ offset_top = -495.0
 offset_right = -200.0
 offset_bottom = 273.0
 scale = Vector2(2.13429, 5.24397)
-texture = ExtResource("2_2awge")
+texture = ExtResource("2_42ul7")
 expand_mode = 4
 
 [node name="earthcore" type="TextureRect" parent="."]
