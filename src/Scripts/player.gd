@@ -14,7 +14,7 @@ var low_rotation_speeds = [60,80,120,200]
 var high_rotation_speeds = [400,500,600,700]
 var low_speeds = [20000,30000,40000]
 var high_speeds = [50000,60000,70000]
-var debug = true
+var debug = false
 var death_rotation = 0
 var death_direction = Vector2(0, 0)
 
@@ -38,7 +38,7 @@ func debug_run():
 #function that gets called when the player gets hit, makes the drill more red
 func hit():
 	heat_color= heat_color-0.3
-	$Sprite.modulate = Color(1,heat_color,heat_color)
+	self.modulate = Color(1,heat_color,heat_color)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
