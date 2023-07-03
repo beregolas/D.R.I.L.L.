@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var bonusPoints = 0
+var depthPoints = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +19,15 @@ func announce(mood:String, text:String):
 	set_mood_zark(mood)
 	setup_speech()
 
+func keep_track_of_bonusScore(current_total_bonus):
+	self.bonusPoints = current_total_bonus
+
+func get_total_score():
+	return depthPoints+bonusPoints
+
 func update_score(player_pos):
-	var score = int(player_pos/100)*10
+	depthPoints = int(player_pos/100)*10
+	var score = depthPoints + bonusPoints
 	$ProgressBar.value = abs(player_pos)
 	#print($ProgressBar.value,"/",$ProgressBar.max_value)
 	$ScoreLabel.text = str(score)

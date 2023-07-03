@@ -129,8 +129,10 @@ func instantiate_collectibles():
 	
 	
 func on_collect():
-	bonus_score = bonus_score+10000
+	bonus_score = bonus_score+100
+	$Overlay.keep_track_of_bonusScore(bonus_score)
 	print("collected")
+	
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
 func looseLife():
@@ -169,7 +171,7 @@ func returnToMenu():
 # Updates the displayed score every second
 # Displays the Victory Message based on the score
 func updateScore():
-	$Overlay.update_score($Player.position.y+bonus_score)
+	$Overlay.update_score($Player.position.y)
 	#we could just send signal directly to overlay but I don't know how to do that
 	
 
@@ -193,8 +195,8 @@ func save_highscore():
 	# We have to retreive and write the old scores again
 	# I do not understand, why there is not an easy "append" option
 	for score in highscore:
-		save_file.store_line(str(score+bonus_score))
-	save_file.store_line(str(score+bonus_score)) # current player score
+		save_file.store_line(str(score))
+	save_file.store_line(str($Overlay.get_total_score())) # current player score
 	save_file.close()
 
 
