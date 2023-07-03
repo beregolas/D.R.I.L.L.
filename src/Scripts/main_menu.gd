@@ -37,7 +37,7 @@ func _process(delta):
 			start_game.emit()
 			get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		if(name=="Kollabohrertief"):
-			multiplayer.emit()
+			Kollabohrertief.emit()
 			get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		if(name=="Explorer Mode"):
 			explorer_mode.emit()

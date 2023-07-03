@@ -46,10 +46,10 @@ func holdSpeech(speechLines):
 	
 	
 func introductorySpeech():
-	var introLines = ["Hello fellow human.\nWith the release of the gapple pro headset, the downfall \nof earth is invetiable.",
-	"To save humanity from this grim fate, I have constructed \na moon base.",
-	"The only one problem: not enough people signed up \nto relocate.",
-	"You agreed to fix this. \nYou change direction by pressing \"SPACE\". \n\nBe careful what you drill into!"
+	var introLines = ["Hello fellow human. With the release of the gapple pro headset, the downfall of earth is invetiable.",
+	"To save humanity from this grim fate, I have constructed a moon base.",
+	"The only one problem: not enough people signed up to relocate.",
+	"You agreed to fix this. You change direction by pressing \"SPACE\". \n\nBe careful what you drill into!"
 	]
 	holdSpeech(introLines)
 	$"Player/Introductory Player".play()
@@ -184,7 +184,7 @@ func win():
 	$Overlay.announce("Happy", "Well done Dr. Ill!
 		Soon the world will burn and everyone will live on the moon")
 	$ScoldTimer.start(5)
-	$GameOverDelayTimer.start(6)
+	$GameOverDelayTimer.start(9)
 	pass
 
 

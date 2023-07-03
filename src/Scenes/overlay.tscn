@@ -91,17 +91,15 @@ theme_override_fonts/font = ExtResource("1_08461")
 theme_override_font_sizes/font_size = 50
 text = "1000"
 
-[node name="Subtitles" type="Label" parent="."]
+[node name="Subtitles" type="RichTextLabel" parent="."]
 z_index = 1
-offset_left = 4.0
-offset_top = 489.0
-offset_right = 1992.0
-offset_bottom = 732.0
-theme_override_fonts/font = ExtResource("1_08461")
-theme_override_font_sizes/font_size = 32
-text = "Hello fellow human.
-With the release of the gapple pro headset, the downfall 
-of earth is invetiable.
+offset_left = 43.0
+offset_top = 529.0
+offset_right = 984.0
+offset_bottom = 634.0
+theme_override_fonts/normal_font = ExtResource("1_08461")
+theme_override_font_sizes/normal_font_size = 25
+text = "Hello fellow human.  With the release of the gapple pro headset, the downfall  of earth is invetiable.
 
 "
 autowrap_mode = 2
