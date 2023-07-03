@@ -21,19 +21,23 @@ text = "Highscore:
 Greg - 200"
 
 [node name="ButtonsContainer" type="VBoxContainer" parent="."]
-offset_left = 350.0
-offset_top = 100.0
-offset_right = 700.0
-offset_bottom = 558.0
+offset_left = 300.0
+offset_top = 20.0
+offset_right = 650.0
+offset_bottom = 632.0
 alignment = 1
 
 [node name="Start" parent="ButtonsContainer" instance=ExtResource("2_sskro")]
 layout_mode = 2
 ButtonName = "Start"
 
-[node name="Settings" parent="ButtonsContainer" instance=ExtResource("2_sskro")]
+[node name="Kollabohrertief" parent="ButtonsContainer" instance=ExtResource("2_sskro")]
 layout_mode = 2
-ButtonName = "Settings"
+ButtonName = "Kollabohrertief"
+
+[node name="Explorer Mode" parent="ButtonsContainer" instance=ExtResource("2_sskro")]
+layout_mode = 2
+ButtonName = "Explorer Mode"
 
 [node name="Exit" parent="ButtonsContainer" instance=ExtResource("2_sskro")]
 layout_mode = 2
@@ -41,5 +45,12 @@ ButtonName = "Exit"
 
 [node name="NextButtonTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="ExplanationsContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(350, 612)
+offset_left = 650.0
+offset_top = 20.0
+offset_right = 1000.0
+offset_bottom = 632.0
 
 [connection signal="timeout" from="NextButtonTimer" to="." method="cycle_through_menu"]

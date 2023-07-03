@@ -1,6 +1,7 @@
 extends CanvasLayer
 signal start_game
-signal settings
+signal Kollabohrertief
+signal explorer_mode
 signal exit
 
 var main
@@ -35,9 +36,12 @@ func _process(delta):
 			save_highscore()
 			start_game.emit()
 			get_tree().change_scene_to_file("res://Scenes/main.tscn")
-		if(name=="Settings"):
-			add_highscore(int(ceil(randf_range(100, 3000))))
-			settings.emit()
+		if(name=="Kollabohrertief"):
+			multiplayer.emit()
+			get_tree().change_scene_to_file("res://Scenes/main.tscn")
+		if(name=="Explorer Mode"):
+			explorer_mode.emit()
+			get_tree().change_scene_to_file("res://Scenes/main.tscn")
 		if(name=="Exit"):
 			Buttons[(chosenButton - 1) % Buttons.size()].setText( "Bye bye")
 			save_highscore()
