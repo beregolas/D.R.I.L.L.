@@ -21,6 +21,7 @@ func _process(delta):
 	global_rotation = 0
 	point = target.global_position
 	#finished is set when the player leaves the screen
+	#print(point.y)
 	if !finished:
 		add_point(point)
 	while get_point_count()>trail_length:

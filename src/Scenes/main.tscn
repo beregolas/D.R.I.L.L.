@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5fwih4hwm4qg"]
+[gd_scene load_steps=23 format=3 uid="uid://c5fwih4hwm4qg"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_fnyj5"]
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="1_uuuce"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
 [ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
+[ext_resource type="PackedScene" uid="uid://dginwnftprs5d" path="res://Scenes/collectibles.tscn" id="17_abanj"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
@@ -605,6 +606,9 @@ autostart = true
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="collectibles" parent="." instance=ExtResource("17_abanj")]
+position = Vector2(595, 832)
 
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]

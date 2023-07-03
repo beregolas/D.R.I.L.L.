@@ -1,5 +1,6 @@
 extends Node
 var score:int
+var bonus_score:int
 var rocks = []
 var obstacles = []
 var collisionsCounter:int
@@ -53,7 +54,7 @@ func introductorySpeech():
 	holdSpeech(introLines)
 	$"Player/Introductory Player".play()
 	#$FollowCamera.camera_speed = lerp(0.005, 0.9, 0.05)
-	print("Lerping")
+	#print("Lerping")
 	
 	
 func reachingMilestone():
@@ -82,10 +83,12 @@ func reachingMilestone():
 
 func new_game():
 	score = 0
+	bonus_score = 0
 	introductorySpeech()
 	zarkVoices = [$"Player/zark voiceplayer 1", $"Player/zark voiceplayer 2", $"Player/zark voiceplayer 3"]
 	$Overlay.update_score(score)
 	init_first_region()
+	
 
 
 func init_first_region():
@@ -107,7 +110,27 @@ func instantiate_obstacles(amountofObstacles:int, min_x:float, max_x:float, min_
 		add_child(obstacle)
 		obstacles.append(obstacle)
 
-
+func instantiate_collectibles():
+	var maximum_collectibles = 5
+	var min_x = 0
+	var max_x = get_viewport().size.x
+	var min_y = $FollowCamera.position.y + get_viewport().size.y
+	var max_y = min_y + get_viewport().size.y*5
+	get_viewport().size.x
+	var collectible_scene = load("res://Scenes/collectibles.tscn")
+	for i in range(maximum_collectibles):
+		var collectible = collectible_scene.instantiate()
+		collectible.position = Vector2(randf_range(min_x,max_x), randf_range(min_y, max_y))
+		collectible.collected.connect(on_collect)
+		add_child(collectible)
+	
+	
+	
+	
+	
+func on_collect():
+	bonus_score = bonus_score+10000
+	print("collected")
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
 func looseLife():
@@ -146,7 +169,7 @@ func returnToMenu():
 # Updates the displayed score every second
 # Displays the Victory Message based on the score
 func updateScore():
-	$Overlay.update_score($Player.position.y)
+	$Overlay.update_score($Player.position.y+bonus_score)
 	#we could just send signal directly to overlay but I don't know how to do that
 	
 
@@ -154,7 +177,7 @@ func updateScore():
 func win():
 	print("you win")
 	invincible = true
-	$"Player/wohoo".play()
+	#$"Player/wohoo".play()
 	$Player/OutroText.play()
 	$Overlay.announce("Happy", "Well done Dr. Ill!
 		Soon the world will burn and everyone will live on the moon")
@@ -170,8 +193,8 @@ func save_highscore():
 	# We have to retreive and write the old scores again
 	# I do not understand, why there is not an easy "append" option
 	for score in highscore:
-		save_file.store_line(str(score))
-	save_file.store_line(str(score)) # current player score
+		save_file.store_line(str(score+bonus_score))
+	save_file.store_line(str(score+bonus_score)) # current player score
 	save_file.close()
 
 
@@ -196,6 +219,7 @@ func _on_obstacle_timer_timeout():
 	var min_pos = $FollowCamera.position.y + get_viewport().size.y
 	var maxObsticlesPerScreen = 30
 	var amount_of_type:int
+	instantiate_collectibles()
 	for i in range(5):
 		amount_of_type = randi_range(1, 5)
 		if(maxObsticlesPerScreen<amount_of_type):

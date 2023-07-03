@@ -20,7 +20,7 @@ func announce(mood:String, text:String):
 func update_score(player_pos):
 	var score = int(player_pos/100)*10
 	$ProgressBar.value = abs(player_pos)
-	print($ProgressBar.value,"/",$ProgressBar.max_value)
+	#print($ProgressBar.value,"/",$ProgressBar.max_value)
 	$ScoreLabel.text = str(score)
 	$ScoreLabel.show()
 
