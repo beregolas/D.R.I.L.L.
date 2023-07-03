@@ -3,7 +3,7 @@ extends Area2D
 signal milestoneReached
 
 var last_region = null
-var max_number_of_regions:int = 8
+var max_number_of_regions:int = 12
 var current_region_number:int = 1
 #size of region is set in the shape.shape menu
 func _init():

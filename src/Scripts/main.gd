@@ -75,11 +75,14 @@ func reachingMilestone():
 	]
 	
 	var goaltexts = [goalOneLines, goalTwoLines, goalThreeLines]
-	holdSpeech(goaltexts[goalTextPointer])
-	zarkVoices[goalTextPointer].play() 
-	goalTextPointer += 1
+	print("GoalTextpointer: ", goalTextPointer)
+	if(!goalTextPointer>=goaltexts.size()):
+		holdSpeech(goaltexts[goalTextPointer]) 
+		zarkVoices[goalTextPointer].play()
+		goalTextPointer += 1
 
 func new_game():
+	goalTextPointer = 0
 	score = 0
 	bonus_score = 0
 	introductorySpeech()
