@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://caicvjfbmfpl3" path="res://Scenes/rock.tscn" id="3_4vsfx"]
 [ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="3_7gk8t"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="3_hq7pr"]
+[ext_resource type="AudioStream" uid="uid://o3qq2sq8la8s" path="res://Audio/Voicelines_v2/introduction.mp3" id="4_7qnfc"]
 [ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="4_mfu6c"]
-[ext_resource type="AudioStream" uid="uid://cqfmrud230ldo" path="res://Audio/ActualVoiceLines/brian_introductory_text.mp3" id="4_r28yb"]
 [ext_resource type="AudioStream" uid="uid://l2i5sgjalp8k" path="res://Audio/ActualVoiceLines/brian_first_milestone.mp3" id="5_6ak34"]
-[ext_resource type="AudioStream" uid="uid://bw5o4n4iyfrcs" path="res://Audio/ActualVoiceLines/brian_halfway.mp3" id="6_fxige"]
-[ext_resource type="AudioStream" uid="uid://f2dysc5fgjvn" path="res://Audio/ActualVoiceLines/brian_three_quarters.mp3" id="7_13v6i"]
-[ext_resource type="AudioStream" uid="uid://3jocpwmq7ch1" path="res://Audio/ActualVoiceLines/outroSpeech.mp3" id="8_ta5uv"]
+[ext_resource type="AudioStream" uid="uid://djleltedgvc4g" path="res://Audio/Voicelines_v2/halfway.mp3" id="6_uq858"]
+[ext_resource type="AudioStream" uid="uid://d01cmttmjn0si" path="res://Audio/Voicelines_v2/almost_there.mp3" id="7_dh6e6"]
+[ext_resource type="AudioStream" uid="uid://dam2xpg7p2mxh" path="res://Audio/Voicelines_v2/finish.mp3" id="8_bsrh8"]
 [ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="10_k2kf4"]
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
@@ -519,19 +519,19 @@ z_index = 10
 position = Vector2(580, 100)
 
 [node name="Introductory Player" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("4_r28yb")
+stream = ExtResource("4_7qnfc")
 
 [node name="zark voiceplayer 1" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-580, -100)
 stream = ExtResource("5_6ak34")
 
 [node name="zark voiceplayer 2" type="AudioStreamPlayer" parent="Player"]
-stream = ExtResource("6_fxige")
+stream = ExtResource("6_uq858")
 pitch_scale = 0.8
 max_polyphony = 2
 
 [node name="zark voiceplayer 3" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("7_13v6i")
+stream = ExtResource("7_dh6e6")
 pitch_scale = 0.7
 
 [node name="wohoo" type="AudioStreamPlayer2D" parent="Player"]
@@ -539,7 +539,7 @@ stream = SubResource("AudioStreamMP3_dklbh")
 pitch_scale = 1.3
 
 [node name="OutroText" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("8_ta5uv")
+stream = ExtResource("8_bsrh8")
 pitch_scale = 0.9
 
 [node name="Background" type="Sprite2D" parent="."]
