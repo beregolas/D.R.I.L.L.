@@ -2,7 +2,7 @@ extends Area2D
 
 signal milestoneReached
 
-var max_number_of_regions:int = 12
+var max_number_of_regions:int = 8
 var current_region_number:int = 1
 var colors:Array[Color] = [
 	Color(0.8, 1, 1),
@@ -88,8 +88,9 @@ func win_if_last_region():
 	if current_region_number==max_number_of_regions:
 		var player = get_parent().get_node("Player")
 		player.get_node("Trail").hide()
-		player.drilling_speed = 7000
-		player.rotation_speed = 80
+		player.drilling_speed = 70
+		player.rotation_speed = 0.8
+		player.get_node("Trail").trail_length = 0
 		get_parent().win()
 		$explosion_animations.explode()
 		#queue_free()

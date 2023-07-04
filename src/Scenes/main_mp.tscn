@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bibksm3xim72e"]
+[gd_scene load_steps=24 format=3 uid="uid://de6jekmd17ss6"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_4mtb6"]
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="2_3wnbh"]
@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://4dhfhw4rhy8i" path="res://Audio/evil_voicelines/passable_job(1).mp3" id="6_he05e"]
 [ext_resource type="AudioStream" uid="uid://c1hs7x38weu4h" path="res://Audio/evil_voicelines/almost_there(1).mp3" id="7_3yd1l"]
 [ext_resource type="AudioStream" uid="uid://cka32oyrm722r" path="res://Audio/evil_voicelines/ending.mp3" id="8_wj667"]
-[ext_resource type="Texture2D" uid="uid://dwb0qescttsc1" path="res://Images/Background.png" id="9_6fqnn"]
-[ext_resource type="Texture2D" uid="uid://d06darokjacft" path="res://Images/Tiles.png" id="10_i0573"]
+[ext_resource type="Texture2D" uid="uid://vwak0f3bprf7" path="res://Images/Background.png" id="9_6fqnn"]
+[ext_resource type="Texture2D" uid="uid://didmk4lrnmmjp" path="res://Images/Tiles.png" id="10_i0573"]
 [ext_resource type="PackedScene" uid="uid://caicvjfbmfpl3" path="res://Scenes/rock.tscn" id="11_dleqp"]
 [ext_resource type="PackedScene" uid="uid://d0fl2apj2y4ge" path="res://Scenes/garbage.tscn" id="12_it5qc"]
 [ext_resource type="Script" path="res://Scenes/FollowCamera.gd" id="13_ghb7w"]
@@ -503,6 +503,7 @@ sources/0 = SubResource("TileSetAtlasSource_4gmgq")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4mtb6")
+is_multiplayer = true
 
 [node name="Overlay" parent="." instance=ExtResource("2_3wnbh")]
 
