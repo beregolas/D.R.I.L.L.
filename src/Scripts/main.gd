@@ -12,6 +12,12 @@ var reachedGoal = 0
 var invincible:bool
 var zarkVoices = []
 var vertical_pixels = 0
+var introLines = ["With the release of the gapple headset, the the downfall of earth is invetiable.",
+	"To save humanity I have construced an moon base, but no one wants to go.",
+	"So you simply have to blow up the earth so that everyone has to flee to my moonbase.",
+	"Drill into golden bombs for extra points and avoid everything else.",
+	"We only had money for a spacebar, so that is how you steer.",
+	]
 
 @export var is_multiplayer = false
 
@@ -49,13 +55,7 @@ func holdSpeech(speechLines):
 	
 	
 func introductorySpeech():
-	var introLines = ["With the release of the gapple headset, the the downfall of earth is invetiable.",
-	"To save humanity I have construced an moon base, but no one wants to go.",
-	"So you simply have to blow up the earth so that everyone has to flee to my moonbase.",
-	"Drill into golden bombs for extra points and avoid everything else.",
-	"We only had money for a spacebar, so that is how you steer.",
-	"Second Player steers with Enter",
-	]
+	
 	holdSpeech(introLines)
 	$"Player/Introductory Player".play()
 	#$FollowCamera.camera_speed = lerp(0.005, 0.9, 0.05)

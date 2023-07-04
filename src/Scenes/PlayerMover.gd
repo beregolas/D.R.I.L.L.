@@ -9,6 +9,7 @@ func _ready():
 	if(self.name=="PlayerMover"):
 		print("Move Player")
 		get_parent().lives = 6
+		get_parent().introLines.append("Second Player steers with Enter")
 		
 	if(self.name=="LifeSetter"):
 		get_parent().lives = 100
