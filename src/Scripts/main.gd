@@ -14,7 +14,7 @@ var zarkVoices = []
 
 @export var is_multiplayer = false
 
-@export var lives = 3
+@export var lives = 3	
 
 @export var speeds: Array = [100, 150, 200, 220, 240, 260, 280, 300, 320, 350, 400]
 @export var rotations: Array = [2.0, 1.9, 1.8, 1.7, 1.6, 1.4, 1.2, 1.0, 0.8, 0.6, 0.5]

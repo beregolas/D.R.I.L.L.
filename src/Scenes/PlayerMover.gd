@@ -8,6 +8,7 @@ extends Node
 func _ready():
 	if(self.name=="PlayerMover"):
 		print("Move Player")
+		get_parent().lives = 6
 		
 	if(self.name=="LifeSetter"):
 		get_parent().lives = 100
