@@ -55,6 +55,23 @@ ButtonName = "Exit"
 [node name="NextButtonTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="Explain" type="Label" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -129.0
+offset_right = 1009.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_1l0p8")
+theme_override_font_sizes/font_size = 32
+text = "Press \"Space\" to select the highlighted option. 
+Wait for your preferred option to be highlighted  first.
+(When the game is not in focus, click on it with the mouse)"
+
 [node name="ExplanationsContainer" type="VBoxContainer" parent="."]
 anchors_preset = 6
 anchor_left = 1.0
