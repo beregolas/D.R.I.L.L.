@@ -53,7 +53,8 @@ func introductorySpeech():
 	"To save humanity I have construced an moon base, but no one wants to go.",
 	"So you simply have to blow up the earth so that everyone has to flee to my moonbase.",
 	"Drill into golden bombs for extra points and avoid everything else.",
-	"We only had money for a spacebar, so that is how you steer",
+	"We only had money for a spacebar, so that is how you steer.",
+	"Second Player steers with Enter",
 	]
 	holdSpeech(introLines)
 	$"Player/Introductory Player".play()

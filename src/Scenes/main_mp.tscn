@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bvhr7e5p28e4t" path="res://Scenes/overlay.tscn" id="2_3wnbh"]
 [ext_resource type="PackedScene" uid="uid://cl4mlk7de2bgc" path="res://Scenes/player.tscn" id="3_a1ab0"]
 [ext_resource type="Script" path="res://Scenes/PlayerMover.gd" id="3_bdogp"]
-[ext_resource type="AudioStream" uid="uid://2t2jq00micxv" path="res://Audio/evil_voicelines/introduction_evil.mp3" id="4_6snx0"]
 [ext_resource type="AudioStream" uid="uid://bqktchni6su16" path="res://Audio/evil_voicelines/steering.mp3" id="5_mvtr3"]
+[ext_resource type="AudioStream" uid="uid://ctul6tgma8km" path="res://Audio/evil_voicelines/introduction_two_player.mp3" id="5_mwa05"]
 [ext_resource type="AudioStream" uid="uid://4dhfhw4rhy8i" path="res://Audio/evil_voicelines/passable_job(1).mp3" id="6_he05e"]
 [ext_resource type="AudioStream" uid="uid://c1hs7x38weu4h" path="res://Audio/evil_voicelines/almost_there(1).mp3" id="7_3yd1l"]
 [ext_resource type="AudioStream" uid="uid://cka32oyrm722r" path="res://Audio/evil_voicelines/ending.mp3" id="8_wj667"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="14_ew33f"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="15_voqch"]
 [ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="16_gef8v"]
-[ext_resource type="PackedScene" path="res://Scenes/collectibles.tscn" id="17_wfyqf"]
+[ext_resource type="PackedScene" uid="uid://dginwnftprs5d" path="res://Scenes/collectibles.tscn" id="17_wfyqf"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
@@ -526,7 +526,7 @@ z_index = 10
 position = Vector2(400, 400)
 
 [node name="Introductory Player" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("4_6snx0")
+stream = ExtResource("5_mwa05")
 
 [node name="zark voiceplayer 1" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-580, -100)
@@ -621,8 +621,8 @@ position = Vector2(595, 832)
 
 [connection signal="collision" from="Rock" to="." method="scoldPlayer"]
 [connection signal="timeout" from="ScoreUpdateTimer" to="." method="updateScore"]
-[connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
 [connection signal="timeout" from="ScoldTimer" to="." method="hideScolding"]
+[connection signal="timeout" from="ScoldTimer" to="." method="_hideScolding"]
 [connection signal="timeout" from="GameOverDelayTimer" to="." method="returnToMenu"]
 [connection signal="timeout" from="longSpeechTimer" to="." method="displaySpeech"]
 [connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
