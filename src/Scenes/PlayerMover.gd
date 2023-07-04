@@ -5,10 +5,19 @@ extends Node
 
 
 
-func _process(delta):
-	var pos_delta = p1.position.y - p2.position.y
+func _ready():
+	if(self.name=="PlayerMover"):
+		print("Move Player")
+		
+	if(self.name=="LifeSetter"):
+		get_parent().lives = 100
+		print("Life setter")
 
-	if pos_delta < -400:
-		p2.position.y = p1.position.y + 400
-	if pos_delta > 400:
-		p2.position.y = p1.position.y - 400
+func _process(delta):
+	if(self.name=="PlayerMover"):
+		var pos_delta = p1.position.y - p2.position.y
+
+		if pos_delta < -400:
+			p2.position.y = p1.position.y + 400
+		if pos_delta > 400:
+			p2.position.y = p1.position.y - 400
