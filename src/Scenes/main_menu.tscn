@@ -86,8 +86,10 @@ custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 bbcode_enabled = true
 text = "
-Starts the game in Multiplayer mode, currently supports two players.
-Inputs are \"SPACEBAR\" and whatever Julius chose, good luck finding it!"
+Starts the game in Multiplayer mode, currently supports two players. 
+(6 Lives, shared)
+
+Inputs are \"SPACEBAR\" and \"ENTER\""
 fit_content = true
 scroll_active = false
 
