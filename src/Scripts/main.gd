@@ -139,9 +139,9 @@ func randomize_speed_and_rotation():
 	
 	
 func on_collect():
-	bonus_score = bonus_score+100
+	bonus_score = bonus_score+500
 	$Overlay.keep_track_of_bonusScore(bonus_score)
-	print("collected")
+	
 	
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
