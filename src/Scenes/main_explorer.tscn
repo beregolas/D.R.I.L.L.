@@ -523,7 +523,7 @@ p2 = NodePath("")
 
 [node name="Player" parent="." instance=ExtResource("4_egdy3")]
 z_index = 10
-position = Vector2(400, 400)
+position = Vector2(500, 100)
 
 [node name="Introductory Player" type="AudioStreamPlayer2D" parent="Player"]
 stream = ExtResource("5_2e18b")
