@@ -14,8 +14,9 @@ var zarkVoices = []
 
 @export var lives = 3
 
-@export var speeds: Array = [50, 60, 80, 90, 100, 150, 200, 220, 240, 260, 280, 300, 320, 350, 400]
-@export var rotations: Array = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 1.8, 2.0, 3.0, 4.0, 5.0]
+@export var speeds: Array = [100, 150, 200, 220, 240, 260, 280, 300, 320, 350, 400]
+@export var rotations: Array = [2.0, 1.9, 1.8, 1.7, 1.6, 1.4, 1.2, 1.0, 0.8, 0.6, 0.5]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

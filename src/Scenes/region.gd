@@ -2,30 +2,33 @@ extends Area2D
 
 signal milestoneReached
 
-var last_region = null
 var max_number_of_regions:int = 12
 var current_region_number:int = 1
-#size of region is set in the shape.shape menu
-func _init():
-	pass
-	
-
-	
+var colors:Array[Color] = [
+	Color(0.8, 1, 1),
+	Color(0.8, 1.1, 1.7),
+	Color(0.8, 1.5, 2.2),
+	Color(1.5, 1.5, 2.5),
+	Color(0.5, 1.2, 1.),
+	Color(1.0, 0.9, 0.9),
+	Color(1.3, 0.8, 0.9),
+	Color(1., 1.2, 0.8),
+	Color(1.5, 1.4, 0.6),
+	Color(1.7, 0.8, 0.9),
+	Color(1.9, 1.5, 0.8),
+	Color(2.0, 0.3, 0.5),
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	modulate_color()
 	#$shape.shape.size.x = 3000
 	#$shape.shape.size.y = 1000
+	$Notifier.rect.size.y = $shape.shape.size.y + 300
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
-
-func _draw():	
 	pass
 
 func get_start_position():
@@ -38,7 +41,6 @@ func get_end_position():
 func create_next_region():
 	var next_region = load("res://Scenes/region.tscn").instantiate()
 	next_region.transform.origin.y = get_end_position()-10
-	next_region.last_region = self
 	next_region.current_region_number= self.current_region_number+1
 	get_parent().add_child(next_region)
 	milestoneReached.connect(get_parent().reachingMilestone)
@@ -46,12 +48,9 @@ func create_next_region():
 
 func modulate_color():
 	$earthcore.hide()
-	var blue_hue = randf_range(0,1)
-	var green_hue = randf_range(0,1)
-	var red_hue = randf_range(0,1)
+	var color_index = (max_number_of_regions - current_region_number / max_number_of_regions)
 	if current_region_number != max_number_of_regions:
-		
-		$texture.modulate = Color(red_hue, green_hue,blue_hue )
+		modulate = colors[current_region_number-1]
 	else:
 		$explosion_animations.show()
 		$earthcore.show()
@@ -80,16 +79,10 @@ func _on_body_entered(body):
 		
 func change_player_movement():
 	get_parent().randomize_speed_and_rotation()
-	
-
-func delete_last_region():
-	if self.last_region != null:
-		last_region.queue_free()
-
+ 
 
 func _on_body_exited(body):
-	if body.is_in_group("player"):
-		delete_last_region()
+	pass
 	
 func win_if_last_region():
 	if current_region_number==max_number_of_regions:
@@ -98,8 +91,12 @@ func win_if_last_region():
 		player.drilling_speed = 7000
 		player.rotation_speed = 80
 		get_parent().win()
-		if last_region !=null:
-			last_region.queue_free()
 		$explosion_animations.explode()
 		#queue_free()
 		return true
+
+
+func _on_notifier_screen_exited():
+	print("region exited screen")
+	queue_free()
+	pass # Replace with function body.

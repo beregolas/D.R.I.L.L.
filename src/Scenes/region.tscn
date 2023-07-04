@@ -13,7 +13,7 @@ shader = ExtResource("2_bxppd")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_emtrc"]
 
-[node name="region" type="Area2D"]
+[node name="region" type="Area2D" groups=["regions"]]
 z_index = -1
 position = Vector2(600, 1500)
 script = ExtResource("1_h76cs")
@@ -46,5 +46,9 @@ texture = SubResource("CanvasTexture_emtrc")
 visible = false
 position = Vector2(-842, -543)
 
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-10000, -200, 200000, 20)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="screen_exited" from="Notifier" to="." method="_on_notifier_screen_exited"]

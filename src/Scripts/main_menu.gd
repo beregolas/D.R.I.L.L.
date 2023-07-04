@@ -2,7 +2,7 @@ extends CanvasLayer
 signal start_game
 signal Kollabohrertief
 signal explorer_mode
-signal exit
+
 
 var main
 var instance
@@ -45,7 +45,7 @@ func _process(delta):
 		if(name=="Exit"):
 			Buttons[(chosenButton - 1) % Buttons.size()].setText( "Bye bye")
 			save_highscore()
-			exit.emit()
+			exit()
 			
 			
 
@@ -116,4 +116,5 @@ func load_highScore():
 		
 	
 	
-	
+func exit():
+	get_tree().quit()
