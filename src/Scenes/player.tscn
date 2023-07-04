@@ -69,7 +69,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"drill",
-"speed": 90.0
+"speed": 15.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_6a6a6"]
@@ -86,21 +86,25 @@ metadata/_edit_group_ = true
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
-frame_progress = 0.651918
+frame = 8
+frame_progress = 0.338342
 
 [node name="GhostRight" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
 script = ExtResource("4_85sa4")
 
 [node name="GhostLeft" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_yakxt")
 animation = &"drill"
 script = ExtResource("4_85sa4")
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-0.151592, -0.101253)
 scale = Vector2(1.00318, 1.00282)
 polygon = PackedVector2Array(0.151093, 40.9857, -11.8109, -38.7894, 12.1131, -37.7922)
