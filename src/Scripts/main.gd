@@ -12,6 +12,8 @@ var reachedGoal = 0
 var invincible:bool
 var zarkVoices = []
 
+@export var is_multiplayer = false
+
 @export var lives = 3
 
 @export var speeds: Array = [100, 150, 200, 220, 240, 260, 280, 300, 320, 350, 400]
@@ -186,7 +188,7 @@ func updateScore():
 func win():
 	print("you win")
 	invincible = true
-	get_tree().call_group("player", "die")
+	# get_tree().call_group("player", "die")
 	#$"Player/wohoo".play()
 	$Player/OutroText.play()
 	$Overlay.announce("Happy", "You did it. You blew up earth. You saved everyone from the heretical gapple and their adblockers. Good job, you may now die.")
