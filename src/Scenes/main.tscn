@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b0mmhh2gyew4b" path="res://Scenes/lava.tscn" id="11_jcex6"]
 [ext_resource type="PackedScene" uid="uid://55k3s04cu31a" path="res://Scenes/maggot.tscn" id="12_y6ley"]
 [ext_resource type="PackedScene" uid="uid://bqyegp6kvxmxj" path="res://Scenes/armadillo.tscn" id="13_k26o4"]
-[ext_resource type="PackedScene" uid="uid://dginwnftprs5d" path="res://Scenes/collectibles.tscn" id="17_abanj"]
+[ext_resource type="PackedScene" path="res://Scenes/collectibles.tscn" id="17_abanj"]
 
 [sub_resource type="Gradient" id="Gradient_t8275"]
 offsets = PackedFloat32Array(0, 0.129032, 0.548387, 0.806452, 0.987097)
