@@ -541,8 +541,8 @@ stream = ExtResource("8_yq51d")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(580, 321)
-scale = Vector2(2.40833, 2.36029)
+position = Vector2(580, 196.5)
+scale = Vector2(2.40833, 3.27573)
 texture = ExtResource("4_mfu6c")
 
 [node name="TileMap" type="TileMap" parent="."]
