@@ -18,7 +18,7 @@ var vertical_pixels = 0
 @export var lives = 3	
 
 @export var speeds: Array = [100, 150, 200, 220, 240, 260, 280, 300, 320, 350, 400]
-@export var rotations: Array = [2.0, 1.9, 1.8, 1.7, 1.6, 1.4, 1.2, 1.0, 0.8, 0.6, 0.5]
+@export var rotations: Array = [1.5, 1.4, 1.3, 1.2, 1.1, 1.1, 1.1, 1.0, 0.8, 0.6, 0.5]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -147,6 +147,7 @@ func on_collect():
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
 func looseLife():
+	print("life lost")
 	if(invincible):
 		return
 	collisionsCounter += 1
@@ -160,7 +161,7 @@ func looseLife():
 						]
 		$Overlay.announce("Angry", scoldings.pick_random())
 
-	if(collisionsCounter==lives):
+	if(collisionsCounter>=lives):
 		$Player.die()
 		$GameOverDelayTimer.start()
 		$Overlay.set_subtitle("You failed!\nMaybe you succeed next time.")
@@ -193,6 +194,7 @@ func win():
 	# get_tree().call_group("player", "die")
 	#$"Player/wohoo".play()
 	$Player/OutroText.play()
+	get_tree().call_group("player", "set_speed_and_rotation", $Player.drilling_speed, 0.1)
 	$Overlay.announce("Happy", "You did it. You blew up earth. You saved everyone from the heretical gapple and their adblockers. Good job, you may now die.")
 	$ScoldTimer.start(5)
 	$GameOverDelayTimer.start(15)
