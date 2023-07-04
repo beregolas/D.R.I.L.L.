@@ -11,6 +11,7 @@ var goalTextPointer = 0
 var reachedGoal = 0
 var invincible:bool
 var zarkVoices = []
+var vertical_pixels = 0
 
 @export var is_multiplayer = false
 
@@ -97,7 +98,7 @@ func new_game():
 func init_first_region():
 	var region = load("res://Scenes/region.tscn").instantiate()
 	add_child(region)
-	var vertical_pixels = region.get_total_length()
+	vertical_pixels = region.get_total_length()
 	$Overlay.init_progress_bar(vertical_pixels)
 	
 ### Generate a parametrazised amount of obstacles defined by path in a rectangle defined by min_x, max_x, min_y and max_y
@@ -138,9 +139,9 @@ func randomize_speed_and_rotation():
 	
 	
 func on_collect():
-	bonus_score = bonus_score+100
+	bonus_score = bonus_score+500
 	$Overlay.keep_track_of_bonusScore(bonus_score)
-	print("collected")
+	
 	
 ### Display Zark Muckerberg and show messages scolding the player for hitting objects
 ### Also checks if the maximum number of collisions was reached and initiates playerdeath
@@ -228,14 +229,20 @@ func load_highScore():
 func _on_obstacle_timer_timeout():
 	print("Generating obstacles	")
 	var min_pos = $FollowCamera.position.y + get_viewport().size.y
+	var max_pos = min_pos + get_viewport().size.y*5
 	var maxObsticlesPerScreen = 30
 	var amount_of_type:int
 	instantiate_collectibles()
+	if(vertical_pixels<min_pos + get_viewport().size.y*5):
+		print("End in sight!")
+		$ObstacleTimer.start(60)
+		max_pos = vertical_pixels
+		maxObsticlesPerScreen = 15
 	for i in range(5):
 		amount_of_type = randi_range(1, 5)
 		if(maxObsticlesPerScreen<amount_of_type):
-			instantiate_obstacles(maxObsticlesPerScreen, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y*5, obstaclesPaths[i])
+			instantiate_obstacles(maxObsticlesPerScreen, 0, get_viewport().size.x, min_pos, max_pos, obstaclesPaths[i])
 			maxObsticlesPerScreen = 0
 		else:	
 			maxObsticlesPerScreen -= amount_of_type
-			instantiate_obstacles(amount_of_type, 0, get_viewport().size.x, min_pos, min_pos + get_viewport().size.y*5, obstaclesPaths[i])
+			instantiate_obstacles(amount_of_type, 0, get_viewport().size.x, min_pos, max_pos, obstaclesPaths[i])

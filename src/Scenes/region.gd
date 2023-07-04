@@ -2,7 +2,7 @@ extends Area2D
 
 signal milestoneReached
 
-var max_number_of_regions:int = 8
+var max_number_of_regions:int = 12
 var current_region_number:int = 1
 var colors:Array[Color] = [
 	Color(0.8, 1, 1),
