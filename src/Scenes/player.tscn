@@ -69,7 +69,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"drill",
-"speed": 90.0
+"speed": 15.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_6a6a6"]
