@@ -71,8 +71,8 @@ func _physics_process(delta):
 		# check for rotation direction
 		var rotation_direction = -1 if Input.is_action_pressed(action) else 1 
 		# update rotation
-		self.rotation_degrees = max(min(self.rotation_degrees + rotation_direction * rotation_speed * speed_factor * delta, maximum_angle), -maximum_angle)
-		#print(rotation_degrees)
+		self.rotation_degrees = clampf(self.rotation_degrees + rotation_direction * rotation_speed * speed_factor * delta, -maximum_angle, maximum_angle)
+		# update speed vector
 		velocity = transform.y * drilling_speed * delta * speed_factor
 		move_and_slide()
 	else:

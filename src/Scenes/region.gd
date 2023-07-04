@@ -50,7 +50,7 @@ func modulate_color():
 	$earthcore.hide()
 	var color_index = (max_number_of_regions - current_region_number / max_number_of_regions)
 	if current_region_number != max_number_of_regions:
-		modulate = colors[current_region_number-1]
+		modulate = colors[(current_region_number-1)%colors.size()]
 	else:
 		$explosion_animations.show()
 		$earthcore.show()
